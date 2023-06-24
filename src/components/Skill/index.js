@@ -21,16 +21,16 @@ const data = [
 
 function Skill() {
     return (
-        <section className="space-y-3">
-            <span>Skill</span>
+        <section className="space-y-5">
+            <span className="text-primaryHeader px-2">Skill</span>
             <div className="grid grid-cols-8 gap-y-2 gap-x-1">
                 {
                     data.map(({ section, description }) => (
                         <React.Fragment key={section}>
-                            <div className="col-span-2 text-gray-500 truncate">{section}</div>
+                            <div className="col-span-2 text-primarySubContent1 truncate">{section}</div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-2">
-                                    <div className="text-gray-400 hover:text-gray-300">{description}</div>
+                                    <div className="text-primaryContent">{description}</div>
                                 </div>
                             </div>
                         </React.Fragment>

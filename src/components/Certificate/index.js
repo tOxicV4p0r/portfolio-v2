@@ -20,7 +20,7 @@ const data = [
 function Certificate() {
     return (
         <section className="space-y-3">
-            <span>Certification </span>
+            <span className="text-primaryHeader px-2">Certification</span>
             <div className="grid grid-cols-8 gap-y-5">
                 {
                     data.map(({ year, cerlink, title, descriptions, skills }) => (

@@ -29,19 +29,10 @@ function Contact() {
             <div className="flex gap-6">
                 {
                     data.map(({ section, title, link, icon }) => (
-                        <React.Fragment key={title}>
-                            <a className="underline underline-offset-4 text-gray-500 hover:text-gray-300" href={link} target="_blank" rel="noopener noreferrer">
+                        <React.Fragment key={section}>
+                            <a className="underline underline-offset-4 text-gray-500 hover:text-gray-300" href={link} alt={title} target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={icon} className="text-2xl" />
                             </a>
-
-                            {/* 
-                            <div className="col-span-2 text-gray-500">{section}</div>
-                            <div className="col-span-6">
-                                <div>
-                                    <a className="underline underline-offset-4 after:content-['_↗']" href={link} target="_blank" rel="noopener noreferrer">{title}</a>
-                                </div>
-                            </div>
-                             */}
                         </React.Fragment>
                     ))
                 }

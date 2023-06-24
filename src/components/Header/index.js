@@ -10,12 +10,12 @@ const data = {
 function Header() {
     return (
         <section>
-            <div className="text-2xl md:text-3xl font-medium">{data.name}</div>
-            <div className="space-x-2 text-gray-400 hover:text-gray-300 font-medium underline underline-offset-4 decoration-gray-700">
+            <div className="text-2xl md:text-3xl font-medium text-primaryTitle">{data.name}</div>
+            <div className="space-x-2 font-medium underline underline-offset-4 decoration-primarySubContent2 text-primaryHeader">
                 <span className="truncate">{data.title}</span>
             </div>
-            <div className="text-gray-500 hover:text-gray-400 font-bold text-sm">{data.degree}</div>
-            <div className="text-gray-500 hover:text-gray-400 font-bold text-sm">{data.contact}</div>
+            <div className="text-primaryContent font-bold text-sm">{data.degree}</div>
+            <div className="text-primaryContent font-bold text-sm">{data.contact}</div>
         </section>
     );
 };

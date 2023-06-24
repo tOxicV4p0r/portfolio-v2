@@ -30,7 +30,7 @@ const data = [
 function SideProject() {
     return (
         <section className="space-y-3">
-            <span>Side Project</span>
+            <span className="text-primaryHeader">Side Project</span>
             <div className="grid grid-cols-8 gap-y-5">
                 {
                     data.map(({ year, link, code, title, descriptions, skills }) => (

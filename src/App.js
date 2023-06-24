@@ -12,11 +12,11 @@ function App() {
     <main className="max-w-5xl mx-auto">
       {/* <Nav /> */}
       <div className="pt-14 pb-7 px-7 font-mono tracking-tighter block lg:flex h-screen">
-        <div className="w-full grid gap-6 pb-10 lg:pb-0">
+        <div className="w-full lg:w-4/6 grid gap-6 pb-10 lg:pb-0">
           <Header />
           <Contact />
         </div>
-        <div className="w-full overflow-y-scroll overscroll-none no-scrollbar grid gap-32">
+        <div className="w-full overflow-y-scroll no-scrollbar grid gap-32">
           <About />
           <Skill />
           <Experience />

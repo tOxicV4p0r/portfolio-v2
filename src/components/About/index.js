@@ -6,9 +6,9 @@ const data = {
 function About() {
 
     return (
-        <section className="space-y-2">
-            <span>About</span>
-            <div className="text-gray-400 hover:text-gray-300">
+        <section className="space-y-5">
+            <span className="text-primaryHeader px-2">About</span>
+            <div className="text-primaryContent px-2">
                 <span>{data.txt}</span>
             </div>
         </section>
