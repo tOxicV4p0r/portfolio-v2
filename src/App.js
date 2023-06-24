@@ -10,15 +10,19 @@ import Skill from "./components/Skill";
 function App() {
   return (
     <div>
-      <Nav />
-      <div className="max-w-xl mx-auto py-16 space-y-10 p-2 font-mono tracking-tighter">
-        <Header />
-        <About />
-        <Skill />
-        <Experience />
-        <Certificate />
-        <SideProject />
-        <Contact />
+      {/* <Nav /> */}
+      <div className="py-16 p-2 font-mono tracking-tighter block lg:flex h-screen">
+        <div className="w-full float-left">
+          <Header />
+        </div>
+        <div className="w-full overflow-y-scroll overscroll-none no-scrollbar h-full">
+          <About />
+          <Skill />
+          <Experience />
+          <Certificate />
+          <SideProject />
+          <Contact />
+        </div>
       </div>
     </div>
   );
