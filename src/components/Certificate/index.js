@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import picMeta from "../../asset/meta.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import picMeta from "../../asset/meta.png"
 
 const data = [
     {
@@ -38,7 +38,7 @@ function Certificate() {
                         <div key={title} className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
                             <div className="col-span-2 text-primarySubContent1">
                                 <div>{year}</div>
-                                <div className="w-3/6 p-1 bg-primaryContent rounded-lg"><img src={picture} className="object-scale-down"/></div>
+                                {picture ? <div className="w-3/6 p-1 bg-primaryContent rounded-lg"><img src={picture} className="object-scale-down" /></div> : null}
                             </div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-2">
