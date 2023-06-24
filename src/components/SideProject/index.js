@@ -29,7 +29,7 @@ const data = [
 
 function SideProject() {
     return (
-        <div className="space-y-3">
+        <section className="space-y-3">
             <span>Side Project</span>
             <div className="grid grid-cols-8 gap-y-5">
                 {
@@ -63,7 +63,7 @@ function SideProject() {
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 };
 

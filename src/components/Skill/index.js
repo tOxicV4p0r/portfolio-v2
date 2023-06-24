@@ -21,7 +21,7 @@ const data = [
 
 function Skill() {
     return (
-        <div className="space-y-3">
+        <section className="space-y-3">
             <span>Skill</span>
             <div className="grid grid-cols-8 gap-y-2 gap-x-1">
                 {
@@ -37,7 +37,7 @@ function Skill() {
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 };
 

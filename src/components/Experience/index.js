@@ -36,7 +36,7 @@ const data = [
 
 function Experience() {
     return (
-        <div className="space-y-3">
+        <section className="space-y-3">
             <span>Work Experience</span>
             <div className="grid grid-cols-8 gap-y-5">
                 {
@@ -67,7 +67,7 @@ function Experience() {
                     ))
                 }
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -19,7 +19,7 @@ const data = [
 
 function Certificate() {
     return (
-        <div className="space-y-3">
+        <section className="space-y-3">
             <span>Certification </span>
             <div className="grid grid-cols-8 gap-y-5">
                 {
@@ -53,7 +53,7 @@ function Certificate() {
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 };
 

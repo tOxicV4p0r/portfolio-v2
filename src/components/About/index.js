@@ -6,12 +6,12 @@ const data = {
 function About() {
 
     return (
-        <div className="space-y-2">
+        <section className="space-y-2">
             <span>About</span>
             <div className="text-gray-400 hover:text-gray-300">
                 <span>{data.txt}</span>
             </div>
-        </div>
+        </section>
     );
 };
 

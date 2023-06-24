@@ -9,22 +9,22 @@ import Skill from "./components/Skill";
 
 function App() {
   return (
-    <div>
+    <main className="max-w-5xl mx-auto">
       {/* <Nav /> */}
-      <div className="py-16 p-2 font-mono tracking-tighter block lg:flex h-screen">
-        <div className="w-full float-left">
+      <div className="pt-14 pb-7 px-7 font-mono tracking-tighter block lg:flex h-screen">
+        <div className="w-full grid gap-6 pb-10 lg:pb-0">
           <Header />
+          <Contact />
         </div>
-        <div className="w-full overflow-y-scroll overscroll-none no-scrollbar h-full">
+        <div className="w-full overflow-y-scroll overscroll-none no-scrollbar grid gap-32">
           <About />
           <Skill />
           <Experience />
           <Certificate />
           <SideProject />
-          <Contact />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
