@@ -2,6 +2,7 @@ import About from "./components/About";
 import Certificate from "./components/Certificate";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
+import Footer from "./components/Footer";
 import Header from "./components/Header"
 import Nav from "./components/Nav";
 import SideProject from "./components/SideProject";
@@ -22,6 +23,7 @@ function App() {
           <Experience />
           <Certificate />
           <SideProject />
+          <Footer />
         </div>
       </div>
     </main>
