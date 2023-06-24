@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const data = [
     {
@@ -43,15 +45,15 @@ function Experience() {
             <div className="grid gap-10">
                 {
                     data.map(({ year, link, title, descriptions, skills }) => (
-                        <div key={title} className="grid grid-cols-8 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl p-2" onMouseEnter={() => setMouseEnter({[title]:true})} onMouseLeave={() => setMouseEnter({[title]:false})}>
+                        <div key={title} className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
                             <div className="col-span-2 text-primarySubContent1">{year}</div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-4">
                                     {
                                         link ?
-                                            <div className="text-primaryHeader underline underline-offset-4 after:content-['_↗']"><a className="" href={link} target="_blank" rel="noopener noreferrer">{title}</a></div>
+                                            <a className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`} href={link} target="_blank" rel="noopener noreferrer">{title} <FontAwesomeIcon icon={faArrowUp} className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-transform`} /></a>
                                             :
-                                            <div className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</div>
+                                            <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
                                     }
                                     {
                                         descriptions.map((e, i) => (

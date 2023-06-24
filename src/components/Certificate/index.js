@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import picMeta from "../../asset/meta.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const data = [
     {
@@ -6,50 +9,64 @@ const data = [
         cerlink: "https://coursera.org/share/ec72454c71270ede2c47fd23e720be2d",
         title: "Meta Front-End Developer by Meta",
         descriptions: [],
-        skills: ["Skills : UI/UX design • JavaScript • React • HTML • CSS"],
+        skills: [
+            ["UI/UX design", "JavaScript", "React", "HTML", "CSS"],
+        ],
+        picture: picMeta,
     },
     {
         year: "June 2023",
         cerlink: "https://coursera.org/share/b8791cd3bc48f7e518b8d96aa8daca40",
         title: "Meta Back-End Developer by Meta",
         descriptions: [],
-        skills: ["Skills : Cloud Hosting • REST API • Python • Django • DBMS"],
+        skills: [
+            ["API Design", "Python", "Django", "DBMS"],
+        ],
+        picture: picMeta,
     },
 ]
 
 function Certificate() {
+    const [isMouseEnter, setMouseEnter] = useState({})
+
     return (
         <section className="space-y-3">
             <span className="text-primaryHeader px-2">Certification</span>
-            <div className="grid grid-cols-8 gap-y-5">
+            <div className="grid gap-10">
                 {
-                    data.map(({ year, cerlink, title, descriptions, skills }) => (
-                        <React.Fragment key={title}>
-                            <div className="col-span-2 text-gray-500">{year}</div>
+                    data.map(({ year, cerlink, title, descriptions, skills, picture }) => (
+                        <div key={title} className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
+                            <div className="col-span-2 text-primarySubContent1">
+                                <div>{year}</div>
+                                <div className="w-3/6 p-1 bg-primaryContent rounded-lg"><img src={picture} className="object-scale-down"/></div>
+                            </div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-2">
-                                    <div>
-                                        {
-                                            cerlink ?
-                                                <a className="underline underline-offset-4 after:content-['_↗']" href={cerlink} target="_blank" rel="noopener noreferrer">{title}</a>
-                                                :
-                                                <span>{title}</span>
-                                        }
-
-                                    </div>
+                                    {
+                                        cerlink ?
+                                            <a className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`} href={cerlink} target="_blank" rel="noopener noreferrer">{title} <FontAwesomeIcon icon={faArrowUp} className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5": "translate-y-0.5"} rotate-45 text-sm transition-all`} /></a>
+                                            :
+                                            <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
+                                    }
                                     {
                                         descriptions.map((e, i) => (
-                                            <div key={i} className="text-gray-400 hover:text-gray-300">{e}</div>
+                                            <div key={i} className="text-primaryContent">{e}</div>
                                         ))
                                     }
                                     {
                                         skills.map((e, i) => (
-                                            <div key={i} className="text-gray-500 hover:text-gray-400 rounded-md bg-gray-700 bg-opacity-20 px-2 py-1">{e}</div>
+                                            <div key={i} className="flex flex-wrap gap-2">
+                                                {
+                                                    e.map((el, j) => (
+                                                        <div key={el + j} className="text-primarySubContent1 rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1">{el}</div>
+                                                    ))
+                                                }
+                                            </div>
                                         ))
                                     }
                                 </div>
                             </div>
-                        </React.Fragment>
+                        </div>
                     ))
                 }
             </div>
