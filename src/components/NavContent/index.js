@@ -26,10 +26,13 @@ function NavContent({ data, section }) {
                             onClick={() => handleClick(e.sectionId)}
                             onMouseEnter={() => setIsMouseEnter({ [e.sectionId]: true })}
                             onMouseLeave={() => setIsMouseEnter({ [e.sectionId]: false })}
-                            className={`${section == e.sectionId ? "text-white" : ""} cursor-pointer pt-5 flex`}
+                            className={`${section === e.sectionId ? "text-white" : ""} cursor-pointer pt-5 flex`}
                         >
-                            <FontAwesomeIcon icon={faArrowRight} className={`${section == e.sectionId ? "text-primaryTitle" : !isMouseEnter[e.sectionId] ? "hidden" : ""} new-arrow mt-1`} />
-                            <div className={`${section == e.sectionId || isMouseEnter[e.sectionId] ? "translate-x-4" : ""} ease-out duration-200`}>{e.title}</div>
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                                className={`${section === e.sectionId ? "text-primaryTitle" : !isMouseEnter[e.sectionId] ? "hidden" : ""} new-arrow mt-1`}
+                            />
+                            <div className={`${section === e.sectionId || isMouseEnter[e.sectionId] ? "translate-x-4" : ""} ease-out duration-200`}>{e.title}</div>
                         </div>
                     ))
                 }

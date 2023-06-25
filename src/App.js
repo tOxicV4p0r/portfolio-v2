@@ -5,7 +5,6 @@ import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Header from "./components/Header"
-import Nav from "./components/Nav";
 import NavContent from "./components/NavContent";
 import SideProject from "./components/SideProject";
 import Skill from "./components/Skill";
@@ -45,9 +44,9 @@ function App() {
   }
 
   return (
-    <main className="max-w-5xl mx-auto">
+    <main className="max-w-6xl mx-auto">
       <div className="pt-14 pb-7 px-7 font-poppins tracking-wide block lg:flex h-screen">
-        <div className="w-full lg:w-4/6 grid gap-10 pb-10 lg:pb-0">
+        <div className="w-full lg:w-5/6 grid gap-10 pb-10 lg:pb-0">
           <Header id="main" />
           {isLg && <NavContent data={data} section={currectSection} />}
           <Contact />
@@ -55,9 +54,9 @@ function App() {
         <div className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
           <About />
           {/* <Skill /> */}
-          <Experience />
-          <SideProject />
-          <Certificate />
+          <Experience currectSection={currectSection} />
+          <SideProject currectSection={currectSection} />
+          <Certificate currectSection={currectSection} />
           <Footer />
         </div>
       </div>

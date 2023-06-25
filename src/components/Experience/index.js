@@ -36,28 +36,43 @@ const data = [
     },
 ]
 
-function Experience() {
+function Experience({ currectSection }) {
     const [isMouseEnter, setMouseEnter] = useState({})
 
+    console.log(currectSection)
     return (
         <section className="space-y-5" id="experience-section">
             <span className="text-primaryHeader px-2">Work Experience</span>
             <div className="grid">
                 {
                     data.map(({ year, link, title, descriptions, skills }) => (
-                        <div key={title} className="grid grid-cols-8 p-2 py-7 mx-1 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
+                        <div
+                            key={title}
+                            className="grid grid-cols-8 p-2 py-7 mx-1 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                            onMouseEnter={() => setMouseEnter({ [title]: true })}
+                            onMouseLeave={() => setMouseEnter({ [title]: false })}
+                        >
                             <div className="col-span-2 text-primarySubContent1">{year}</div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-4">
                                     {
                                         link ?
-                                            <a className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`} href={link} target="_blank" rel="noopener noreferrer">{title} <FontAwesomeIcon icon={faArrowUp} className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-transform`} /></a>
+                                            <a
+                                                className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`}
+                                                href={link} target="_blank" rel="noopener noreferrer"
+                                            >
+                                                {title}
+                                                <FontAwesomeIcon
+                                                    icon={faArrowUp}
+                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-transform`}
+                                                />
+                                            </a>
                                             :
                                             <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
                                     }
                                     {
                                         descriptions.map((e, i) => (
-                                            <div key={i} className="text-primaryContent">{e}</div>
+                                            <div key={i} className="text-primaryContent text-sm">{e}</div>
                                         ))
                                     }
                                     {
@@ -65,7 +80,12 @@ function Experience() {
                                             <div key={i} className="flex flex-wrap gap-2">
                                                 {
                                                     e.map((el, j) => (
-                                                        <div key={el + j} className="text-primarySubContent1 rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1">{el}</div>
+                                                        <div
+                                                            key={el + j}
+                                                            className={`${isMouseEnter[title] ? "text-primarySubTitle" : "text-primarySubContent1"} text-sm rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1`}
+                                                        >
+                                                            {el}
+                                                        </div>
                                                     ))
                                                 }
                                             </div>

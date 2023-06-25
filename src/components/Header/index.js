@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import ProfilePic from "../../asset/profilepixel.png"
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import fileResume from "../../asset/resume.pdf"
 
 const data = {
