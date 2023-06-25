@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import ProfilePic from "../../asset/profilepixel.png"
-import { useState } from "react";
+import fileResume from "../../asset/resume.pdf"
 
 const data = {
     name: "Kraisorn Deelert",
     title: "Software Developer · between jobs",
     degree: "CPE · Mahanakorn University",
     btnText: "Download Résumé",
-    link: "https://raw.githubusercontent.com/tOxicV4p0r/Resume/main/resume.pdf",
+    link: fileResume,
 }
 
 function Header() {
