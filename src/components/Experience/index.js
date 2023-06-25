@@ -5,7 +5,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 const data = [
     {
         year: "2021-2022",
-        link: "",
+        link: "#",
         title: "Fullstack · Sport Analysis System",
         descriptions: [
             "Designing and developing a sports data analysis system that scrapes data from various sports websites, processes it, and presents different profit-making possibilities in real-time for customers.",
@@ -51,7 +51,7 @@ function Experience({ currectSection }) {
                             onMouseEnter={() => setMouseEnter({ [title]: true })}
                             onMouseLeave={() => setMouseEnter({ [title]: false })}
                         >
-                            <div className="col-span-2 text-primarySubContent1">{year}</div>
+                            <div className="col-span-2 text-primarySubContent1 text-sm">{year}</div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-4">
                                     {
@@ -60,10 +60,10 @@ function Experience({ currectSection }) {
                                                 className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`}
                                                 href={link} target="_blank" rel="noopener noreferrer"
                                             >
-                                                {title}
+                                                <span className="pr-1">{title}</span>
                                                 <FontAwesomeIcon
                                                     icon={faArrowUp}
-                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-transform`}
+                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm transition-transform`}
                                                 />
                                             </a>
                                             :

@@ -44,14 +44,23 @@ function Certificate() {
                     data.map(({ year, cerlink, title, descriptions, skills, picture }) => (
                         <div key={title} className="grid grid-cols-8 p-2 py-7 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
-                                <div>{year}</div>
+                                <div className="text-sm">{year}</div>
                                 {picture ? <div className="w-3/6 p-1 bg-primaryContent rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
                             </div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-4">
                                     {
                                         cerlink ?
-                                            <a className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`} href={cerlink} target="_blank" rel="noopener noreferrer">{title} <FontAwesomeIcon icon={faArrowUp} className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-all`} /></a>
+                                            <a
+                                                className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`}
+                                                href={cerlink}
+                                                target="_blank" rel="noopener noreferrer">
+                                                <span className="pr-1">{title}</span>
+                                                <FontAwesomeIcon
+                                                    icon={faArrowUp}
+                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm transition-all`}
+                                                />
+                                            </a>
                                             :
                                             <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
                                     }

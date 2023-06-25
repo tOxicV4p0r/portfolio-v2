@@ -13,7 +13,7 @@ const data = {
 
 function Header() {
     const [isMouseEnter, setMouseEnter] = useState(false)
-    
+
     return (
         <section>
             <div className="text-2xl md:text-3xl font-medium text-primaryTitle pb-3">{data.name}</div>
@@ -26,15 +26,15 @@ function Header() {
                 onMouseEnter={() => setMouseEnter(true)}
                 onMouseLeave={() => setMouseEnter(false)}>
                 <a
-                    className="px-5 py-2 rounded-md bg-primaryTitle text-primaryHeader hover:bg-primarySubTitle"
+                    className="px-5 py-3 text-sm rounded-md bg-primaryTitle text-primaryHeader hover:bg-primarySubTitle"
                     href={data.link}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span className="pr-2 text-sm">{data.btnText}</span>
+                    <span className="pr-2">{data.btnText}</span>
                     <FontAwesomeIcon
                         icon={faArrowDown}
-                        className={`${isMouseEnter ? "rotate-180" : ""} text-xs motion-safe:animate-bounce transition-all`}
+                        className="motion-safe:animate-bounce"
                     />
                 </a>
             </div>

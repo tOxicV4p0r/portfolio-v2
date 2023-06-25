@@ -64,7 +64,7 @@ function SideProject() {
                             onMouseLeave={() => setMouseEnter({ [title]: false })}
                         >
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
-                                <div>{year}</div>
+                                <div className="text-sm">{year}</div>
                                 {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
                             </div>
                             <div className="col-span-6">
@@ -77,10 +77,10 @@ function SideProject() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                {title}
+                                                <span className="pr-1">{title}</span>
                                                 <FontAwesomeIcon
                                                     icon={faArrowUp}
-                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-all`}
+                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm transition-all`}
                                                 />
                                             </a>
                                             :
