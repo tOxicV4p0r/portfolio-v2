@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,7 +40,7 @@ function Experience() {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="space-y-5" id="experience">
+        <section className="space-y-5" id="experience-section">
             <span className="text-primaryHeader px-2">Work Experience</span>
             <div className="grid gap-10">
                 {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import picLittleLemon from "../../asset/littlelemon.png"
 import picSocialMern from "../../asset/social_mern.png"
 import picAxieBot from "../../asset/axiebot.png"
@@ -9,7 +10,9 @@ const data = [
     {
         year: "June 2023",
         link: "https://little-lemon-image-nhvl2sce2q-uc.a.run.app/",
-        code: "https://github.com/tOxicV4p0r/little-lemon/",
+        materials: [
+            { type: faGithub, link: "https://github.com/tOxicV4p0r/little-lemon/" },
+        ],
         title: "Little Lemon restaurant",
         descriptions: ["This project is part of the Meta Front-End Developer Capstone final project assessment and focuses solely on reservation functionality."],
         skills: [
@@ -20,7 +23,10 @@ const data = [
     {
         year: "May 2023",
         link: "https://social-mern-image-nhvl2sce2q-as.a.run.app/",
-        code: "https://github.com/tOxicV4p0r/social_mern_edroh/",
+        materials: [
+            { type: faGithub, link: "https://github.com/tOxicV4p0r/social_mern_edroh/" },
+            { type: faYoutube, link: "https://youtu.be/BdgSbmS4_qg" },
+        ],
         title: "Social MERN stack",
         descriptions: ["This demo project is based on EdRoh's tutorial video on Youtube. I have fixed some bugs and added several features."],
         skills: [
@@ -32,7 +38,7 @@ const data = [
     {
         year: "Feb 2022",
         link: "https://app.axieinfinity.com/marketplace/",
-        code: "",
+        materials: [],
         title: "Automated Trading Bot - Axie",
         descriptions: ["The bot collects daily trading data and utilizes it to analyze buying and selling prices to identify profitable opportunities. It executes automated buying and selling Axie that can generate a profit of 10% or more on the Ronin blockchain."],
         skills: [
@@ -46,11 +52,11 @@ function SideProject() {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="space-y-3" id="sideproject">
+        <section className="space-y-3" id="sideproject-section">
             <span className="text-primaryHeader">Side Project</span>
             <div className="grid gap-10">
                 {
-                    data.map(({ year, link, code, title, descriptions, skills, picture }) => (
+                    data.map(({ year, link, materials, title, descriptions, skills, picture }) => (
                         <div key={title} className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
                             <div className="col-span-2 text-primarySubContent1">
                                 <div>{year}</div>
@@ -65,12 +71,15 @@ function SideProject() {
                                             <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
                                     }
                                     {
-                                        code ?
-                                            <div>
-                                                <a className={`${isMouseEnter[title] ? 'text-primarySubTitle' : 'text-primaryContent underline underline-offset-4'}`} href={code} target="_blank" rel="noopener noreferrer">[Code] <FontAwesomeIcon icon={faArrowUp} className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-all`} /></a>
+                                        materials.length > 0 ?
+                                            <div className="space-x-4">
+                                                {
+                                                    materials.map((e, i) => (
+                                                        <a key={i} className={`${isMouseEnter[title] ? 'text-primarySubTitle' : 'text-primaryContent underline underline-offset-4'}`} href={e.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={e.type} className={`${isMouseEnter[title] ? "scale-125" : ""} transition-all`} /></a>
+                                                    ))
+                                                }
                                             </div>
-                                            :
-                                            null
+                                            : null
                                     }
                                     {
                                         descriptions.map((e, i) => (

@@ -6,7 +6,7 @@ const data = {
 function About() {
 
     return (
-        <section className="space-y-5">
+        <section className="space-y-5" id="about-section">
             <span className="text-primaryHeader px-2">About</span>
             <div className="text-primaryContent px-2">
                 <span>{data.txt}</span>
