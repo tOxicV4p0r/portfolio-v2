@@ -11,7 +11,7 @@ import SideProject from "./components/SideProject";
 import Skill from "./components/Skill";
 import useMediaQuery from "./hook/useMediaQuery";
 
-const OFFSET_Y = 56;
+const OFFSET_Y = 79;
 const data = {
   title: "",
   descriptions: "Powered by React.js and Tailwind",
@@ -25,7 +25,7 @@ const data = {
 
 function App() {
   const isLg = useMediaQuery("(min-width:1024px)")
-  const [currectSection, setCurrectSection] = useState("");
+  const [currectSection, setCurrectSection] = useState(data.sections[0].sectionId);
 
   const handleScroll = () => {
     for (let i = 0; i < data.sections.length; i++) {
@@ -33,10 +33,10 @@ function App() {
       const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
       const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
       const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
+      // console.log(el.sectionId, offetTop, height)
       if (offetTop <= OFFSET_Y) {
         if (offetTop + (height / 2) > OFFSET_Y) {
           setCurrectSection(el.sectionId);
-          // console.log(el.sectionId)
         }
       } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
         setCurrectSection(el.sectionId);
@@ -46,13 +46,13 @@ function App() {
 
   return (
     <main className="max-w-5xl mx-auto">
-      <div className="pt-14 pb-7 px-7 font-mono tracking-tighter block lg:flex h-screen">
+      <div className="pt-14 pb-7 px-7 font-poppins tracking-wide block lg:flex h-screen">
         <div className="w-full lg:w-4/6 grid gap-10 pb-10 lg:pb-0">
-          <Header />
+          <Header id="main" />
           {isLg && <NavContent data={data} section={currectSection} />}
           <Contact />
         </div>
-        <div className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-64" onScroll={handleScroll}>
+        <div className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
           <About />
           {/* <Skill /> */}
           <Experience />

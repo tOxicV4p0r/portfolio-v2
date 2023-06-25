@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons"
-import React, { useState } from "react";
 
 const data = [
     {
@@ -33,7 +33,7 @@ function Contact() {
                     data.map(({ section, title, link, icon }) => (
                         <div key={section} className="px-3 -translate-x-3" onMouseEnter={() => setMouseEnter({ [section]: true })} onMouseLeave={() => setMouseEnter({ [section]: false })}>
                             <a className="underline underline-offset-4 text-gray-500" href={link} alt={title} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={icon} className={`${isMouseEnter[section] ? "text-primaryTitle scale-125" : ""} text-2xl transition-all`} />
+                                <FontAwesomeIcon icon={icon} className={`${isMouseEnter[section] ? "text-primaryTitle scale-110" : "scale-90"} text-3xl transition-all`} />
                             </a>
                         </div>
                     ))
