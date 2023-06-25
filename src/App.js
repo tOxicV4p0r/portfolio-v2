@@ -35,7 +35,7 @@ function App() {
       if (offetTop <= OFFSET_Y) {
         if (offetTop + (height / 2) > OFFSET_Y) {
           setCurrectSection(el.sectionId)
-          console.log(el.sectionId)
+          // console.log(el.sectionId)
         }
       }
     }
@@ -49,7 +49,7 @@ function App() {
           {isLg && <NavContent data={data} section={currectSection} />}
           <Contact />
         </div>
-        <div className="w-full overflow-y-scroll no-scrollbar grid gap-32" onScroll={handleScroll}>
+        <div className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-64" onScroll={handleScroll}>
           <About />
           {/* <Skill /> */}
           <Experience />

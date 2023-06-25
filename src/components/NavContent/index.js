@@ -1,3 +1,6 @@
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function NavContent({ data, section }) {
     const handleClick = (anchor) => {
         const id = `${anchor}-section`;
@@ -12,15 +15,15 @@ function NavContent({ data, section }) {
 
     return (
         <section className="space-y-5">
-            <div className="">
+            <div className="space-y-2">
                 {
                     data.sections.map((e, i) => (
                         <div
                             key={i}
                             onClick={() => handleClick(e.sectionId)}
-                            className={`${section == e.sectionId ? "text-white" : ""}`}
+                            className={`${section == e.sectionId ? "text-white" : ""} cursor-pointer`}
                         >
-                            {e.title}
+                            <FontAwesomeIcon icon={faArrowRight} className={`${section == e.sectionId ? "" : "hidden"} new-arrow`} /> <span className="ease-in duration-300">{e.title}</span>
                         </div>
                     ))
                 }
