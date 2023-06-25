@@ -17,7 +17,7 @@ function NavContent({ data, section }) {
     }
 
     return (
-        <section className="space-y-5">
+        <section>
             <div className="">
                 {
                     data.sections.map((e, i) => (

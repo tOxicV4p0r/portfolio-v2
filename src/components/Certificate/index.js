@@ -30,7 +30,7 @@ function Certificate() {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="space-y-3" id="certification-section">
+        <section className="space-y-5" id="certification-section">
             <span className="text-primaryHeader px-2">Certification</span>
             <div className="grid">
                 {

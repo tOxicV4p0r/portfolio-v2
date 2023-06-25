@@ -33,7 +33,6 @@ function App() {
       const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
       const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
       const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
-      console.log(el.sectionId, offetTop, height);
       if (offetTop <= OFFSET_Y) {
         if (offetTop + (height / 2) > OFFSET_Y) {
           setCurrectSection(el.sectionId);
@@ -48,7 +47,7 @@ function App() {
   return (
     <main className="max-w-5xl mx-auto">
       <div className="pt-14 pb-7 px-7 font-mono tracking-tighter block lg:flex h-screen">
-        <div className="w-full lg:w-4/6 grid gap-6 pb-10 lg:pb-0">
+        <div className="w-full lg:w-4/6 grid gap-10 pb-10 lg:pb-0">
           <Header />
           {isLg && <NavContent data={data} section={currectSection} />}
           <Contact />

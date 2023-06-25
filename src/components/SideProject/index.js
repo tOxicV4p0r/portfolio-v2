@@ -52,7 +52,7 @@ function SideProject() {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="space-y-3" id="sideproject-section">
+        <section className="space-y-5" id="sideproject-section">
             <span className="text-primaryHeader px-2">Side Project</span>
             <div className="grid">
                 {
@@ -72,10 +72,10 @@ function SideProject() {
                                     }
                                     {
                                         materials.length > 0 ?
-                                            <div className="space-x-6">
+                                            <div>
                                                 {
                                                     materials.map((e, i) => (
-                                                        <a key={i} className={`${isMouseEnter[title] ? 'text-primarySubTitle' : 'text-primaryContent underline underline-offset-4'}`} href={e.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={e.type} className={`${isMouseEnter[title] ? "" : ""} text-lg transition-all`} /></a>
+                                                        <a key={i} className={`${isMouseEnter[title] ? 'text-primarySubTitle' : 'text-primaryContent'}`} href={e.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={e.type} className={`${i > 0 ? "px-4" : "pr-2"} text-lg hover:scale-125 transition-all`} /></a>
                                                     ))
                                                 }
                                             </div>
