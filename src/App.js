@@ -19,10 +19,10 @@ function App() {
         </div>
         <div className="w-full overflow-y-scroll no-scrollbar grid gap-32">
           <About />
-          <Skill />
+          {/* <Skill /> */}
           <Experience />
-          <Certificate />
           <SideProject />
+          <Certificate />
           <Footer />
         </div>
       </div>
