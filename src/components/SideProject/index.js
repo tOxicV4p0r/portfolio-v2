@@ -61,7 +61,8 @@ function SideProject() {
                             key={title}
                             className="grid grid-cols-8 p-2 py-7 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
                             onMouseEnter={() => setMouseEnter({ [title]: true })}
-                            onMouseLeave={() => setMouseEnter({ [title]: false })}>
+                            onMouseLeave={() => setMouseEnter({ [title]: false })}
+                        >
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
                                 <div>{year}</div>
                                 {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}

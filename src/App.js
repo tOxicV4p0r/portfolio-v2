@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useMediaQuery from "./hook/useMediaQuery";
 import About from "./components/About";
 import Certificate from "./components/Certificate";
 import Contact from "./components/Contact";
@@ -8,7 +9,6 @@ import Header from "./components/Header"
 import NavContent from "./components/NavContent";
 import SideProject from "./components/SideProject";
 import Skill from "./components/Skill";
-import useMediaQuery from "./hook/useMediaQuery";
 
 const OFFSET_Y = 79;
 const data = {

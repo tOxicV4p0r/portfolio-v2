@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 
 function NavContent({ data, section }) {
     const [isMouseEnter, setIsMouseEnter] = useState(false)

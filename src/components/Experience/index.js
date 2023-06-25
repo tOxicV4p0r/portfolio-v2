@@ -39,7 +39,6 @@ const data = [
 function Experience({ currectSection }) {
     const [isMouseEnter, setMouseEnter] = useState({})
 
-    console.log(currectSection)
     return (
         <section className="space-y-5" id="experience-section">
             <span className="text-primaryHeader px-2">Work Experience</span>

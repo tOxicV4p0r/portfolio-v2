@@ -26,7 +26,10 @@ function Skill() {
             <div className="grid">
                 {
                     data.map(({ section, description }) => (
-                        <div key={section} className="grid grid-cols-8 p-2" >
+                        <div
+                            key={section}
+                            className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                        >
                             <div className="col-span-2 text-primarySubContent1 truncate">{section}</div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-2">
