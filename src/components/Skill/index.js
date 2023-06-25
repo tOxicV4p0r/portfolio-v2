@@ -21,7 +21,7 @@ const data = [
 
 function Skill() {
     return (
-        <section className="space-y-5">
+        <section className="space-y-5" id="skill">
             <span className="text-primaryHeader px-2">Skill</span>
             <div className="grid">
                 {

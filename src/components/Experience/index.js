@@ -40,7 +40,7 @@ function Experience() {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="space-y-5">
+        <section className="space-y-5" id="experience">
             <span className="text-primaryHeader px-2">Work Experience</span>
             <div className="grid gap-10">
                 {

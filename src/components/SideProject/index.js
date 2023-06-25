@@ -46,7 +46,7 @@ function SideProject() {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="space-y-3">
+        <section className="space-y-3" id="sideproject">
             <span className="text-primaryHeader">Side Project</span>
             <div className="grid gap-10">
                 {
