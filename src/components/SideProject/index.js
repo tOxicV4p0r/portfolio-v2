@@ -53,17 +53,17 @@ function SideProject() {
 
     return (
         <section className="space-y-3" id="sideproject-section">
-            <span className="text-primaryHeader">Side Project</span>
-            <div className="grid gap-10">
+            <span className="text-primaryHeader px-2">Side Project</span>
+            <div className="grid">
                 {
                     data.map(({ year, link, materials, title, descriptions, skills, picture }) => (
-                        <div key={title} className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
-                            <div className="col-span-2 text-primarySubContent1">
+                        <div key={title} className="grid grid-cols-8 p-2 py-7 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
+                            <div className="col-span-2 text-primarySubContent1 space-y-4">
                                 <div>{year}</div>
                                 {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" /></div> : null}
                             </div>
                             <div className="col-span-6">
-                                <div className="flex flex-col space-y-2">
+                                <div className="flex flex-col space-y-4">
                                     {
                                         link ?
                                             <a className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`} href={link} target="_blank" rel="noopener noreferrer">{title} <FontAwesomeIcon icon={faArrowUp} className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-0.5" : "translate-y-0.5"} rotate-45 text-sm transition-all`} /></a>
@@ -72,10 +72,10 @@ function SideProject() {
                                     }
                                     {
                                         materials.length > 0 ?
-                                            <div className="space-x-4">
+                                            <div className="space-x-6">
                                                 {
                                                     materials.map((e, i) => (
-                                                        <a key={i} className={`${isMouseEnter[title] ? 'text-primarySubTitle' : 'text-primaryContent underline underline-offset-4'}`} href={e.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={e.type} className={`${isMouseEnter[title] ? "scale-125" : ""} transition-all`} /></a>
+                                                        <a key={i} className={`${isMouseEnter[title] ? 'text-primarySubTitle' : 'text-primaryContent underline underline-offset-4'}`} href={e.link} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={e.type} className={`${isMouseEnter[title] ? "" : ""} text-lg transition-all`} /></a>
                                                     ))
                                                 }
                                             </div>

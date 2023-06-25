@@ -36,11 +36,11 @@ function App() {
       console.log(el.sectionId, offetTop, height);
       if (offetTop <= OFFSET_Y) {
         if (offetTop + (height / 2) > OFFSET_Y) {
-          setCurrectSection(el.sectionId)
+          setCurrectSection(el.sectionId);
           // console.log(el.sectionId)
         }
       } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
-        setCurrectSection(el.sectionId)
+        setCurrectSection(el.sectionId);
       }
     }
   }

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons"
-import React from "react";
+import React, { useState } from "react";
 
 const data = [
     {
@@ -24,16 +24,18 @@ const data = [
 ]
 
 function Contact() {
+    const [isMouseEnter, setMouseEnter] = useState({})
+
     return (
         <section className="flex items-end pb-10 mb-10 lg:pb-0">
-            <div className="flex gap-6">
+            <div className="flex">
                 {
                     data.map(({ section, title, link, icon }) => (
-                        <React.Fragment key={section}>
-                            <a className="underline underline-offset-4 text-gray-500 hover:text-gray-300" href={link} alt={title} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={icon} className="text-2xl" />
+                        <div key={section} className="px-3" onMouseEnter={() => setMouseEnter({ [section]: true })} onMouseLeave={() => setMouseEnter({ [section]: false })}>
+                            <a className="underline underline-offset-4 text-gray-500" href={link} alt={title} target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={icon} className={`${isMouseEnter[section] ? "text-primaryTitle scale-125" : ""} text-2xl transition-all`} />
                             </a>
-                        </React.Fragment>
+                        </div>
                     ))
                 }
             </div>

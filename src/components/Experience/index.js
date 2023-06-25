@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -42,10 +42,10 @@ function Experience() {
     return (
         <section className="space-y-5" id="experience-section">
             <span className="text-primaryHeader px-2">Work Experience</span>
-            <div className="grid gap-10">
+            <div className="grid">
                 {
                     data.map(({ year, link, title, descriptions, skills }) => (
-                        <div key={title} className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
+                        <div key={title} className="grid grid-cols-8 p-2 py-7 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
                             <div className="col-span-2 text-primarySubContent1">{year}</div>
                             <div className="col-span-6">
                                 <div className="flex flex-col space-y-4">
