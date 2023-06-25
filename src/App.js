@@ -32,11 +32,15 @@ function App() {
       const el = data.sections[i];
       const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
       const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
+      const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
+      console.log(el.sectionId, offetTop, height);
       if (offetTop <= OFFSET_Y) {
         if (offetTop + (height / 2) > OFFSET_Y) {
           setCurrectSection(el.sectionId)
           // console.log(el.sectionId)
         }
+      } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
+        setCurrectSection(el.sectionId)
       }
     }
   }
