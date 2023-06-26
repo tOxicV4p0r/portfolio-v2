@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import picMeta from "../../asset/meta.png"
@@ -33,21 +33,34 @@ const data = [
     },
 ]
 
-function Certificate() {
+const SECTION_ID = "certification"
+
+function Certificate({ section, isNonMobile, addSection }) {
     const [isMouseEnter, setMouseEnter] = useState({})
 
+    useEffect(() => {
+        const tmp = [...document.getElementById(`${SECTION_ID}-section`).querySelectorAll('[id]')].map(e => e.id)
+        addSection(tmp)
+    }, []);
+
     return (
-        <section className="space-y-5" id="certification-section">
-            <span className="text-primaryHeader px-2">Certification</span>
+        <section className="space-y-5" id={`${SECTION_ID}-section`} >
+            <span className="text-primaryHeader pl-3">Certification</span>
             <div className="grid">
                 {
                     data.map(({ year, cerlink, title, descriptions, skills, picture }) => (
-                        <div key={title} className="grid grid-cols-8 p-2 py-7 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" onMouseEnter={() => setMouseEnter({ [title]: true })} onMouseLeave={() => setMouseEnter({ [title]: false })}>
+                        <div
+                            id={`${SECTION_ID}-${title.split(' ').join('')}`}
+                            key={title}
+                            className="grid grid-cols-8 p-2 py-7 mx-1 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                            onMouseEnter={() => setMouseEnter({ [title]: true })}
+                            onMouseLeave={() => setMouseEnter({ [title]: false })}
+                        >
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
-                                <div className="text-sm">{year}</div>
+                                <div><span className="text-sm">{year}</span></div>
                                 {picture ? <div className="w-3/6 p-1 bg-primaryContent rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
                             </div>
-                            <div className="col-span-6">
+                            <div className="col-span-6 pl-2">
                                 <div className="flex flex-col space-y-4">
                                     {
                                         cerlink ?

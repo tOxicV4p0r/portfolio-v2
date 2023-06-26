@@ -23,11 +23,11 @@ const data = [
     },
 ]
 
-function Contact() {
+function Contact({isNonMobile = true}) {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (
-        <section className="flex items-end pb-10 mb-10 lg:pb-0">
+        <section className={`${!isNonMobile?"pl-3":""} flex items-end pb-10 mb-10 lg:pb-0`}>
             <div className="flex">
                 {
                     data.map(({ section, title, link, icon }) => (

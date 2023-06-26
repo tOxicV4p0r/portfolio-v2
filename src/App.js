@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMediaQuery from "./hook/useMediaQuery";
 import About from "./components/About";
 import Certificate from "./components/Certificate";
@@ -23,10 +23,16 @@ const data = {
 }
 
 function App() {
-  const isLg = useMediaQuery("(min-width:1024px)")
+  const isNonMobile = useMediaQuery("(min-width:1024px)")
   const [currectSection, setCurrectSection] = useState(data.sections[0].sectionId);
+  const [sectionIds, setSectionId] = useState([]);
 
-  const handleScroll = () => {
+  const addSection = (sections) => {
+    setSectionId((prev) => [...new Set([...prev, ...sections])]);
+  }
+
+  const handleScroll = (e) => {
+    
     for (let i = 0; i < data.sections.length; i++) {
       const el = data.sections[i];
       const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
@@ -40,23 +46,48 @@ function App() {
       } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
         setCurrectSection(el.sectionId);
       }
+      console.log(currectSection)
+      
+    }
+    
+  }
+
+  const handleWindowScroll = () => {
+    // console.log(window.scrollY, sectionIds.length)
+    for (let i = 0; i < sectionIds.length; i++) {
+      // console.log(i)
+      const el = sectionIds[i];
+      const offetTop = document.getElementById(`${el}`).getBoundingClientRect().top;
+      const height = document.getElementById(`${el}`).getClientRects()[0].height;
+      const viewHeight = document.documentElement.clientHeight * 0.45;
+      console.log(el, offetTop, height, viewHeight)
+      if (offetTop <= viewHeight) {
+        if (offetTop + (height * 0.5) > viewHeight) {
+          setCurrectSection(el);
+        }
+      }
     }
   }
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleWindowScroll);
+    return () => window.removeEventListener('scroll', handleWindowScroll);
+  }, [sectionIds]);
+
   return (
     <main className="max-w-6xl mx-auto">
-      <div className="pt-14 pb-7 px-7 font-poppins tracking-wide block lg:flex h-screen">
+      <div className="px-5 pb-7 pt-14 font-poppins tracking-wide block lg:flex h-screen">
         <div className="w-full lg:w-5/6 grid gap-10 pb-10 lg:pb-0">
-          <Header id="main" />
-          {isLg && <NavContent data={data} section={currectSection} />}
-          <Contact />
+          <Header isNonMobile={isNonMobile} />
+          {isNonMobile && <NavContent data={data} section={currectSection} />}
+          <Contact isNonMobile={isNonMobile} />
         </div>
         <div className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
           <About />
           {/* <Skill /> */}
-          <Experience currectSection={currectSection} />
-          <SideProject currectSection={currectSection} />
-          <Certificate currectSection={currectSection} />
+          <Experience isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />
+          <SideProject isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />
+          <Certificate isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />
           <Footer />
         </div>
       </div>

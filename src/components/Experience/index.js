@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,6 +15,7 @@ const data = [
             ["React", "Redux-Saga", "Antd"],
             ["Playwright", "Nginx", "NodeJS", "MongoDB"]
         ],
+        picture: "",
     },
     {
         year: "2013-2018",
@@ -22,6 +23,7 @@ const data = [
         title: "Police Officer",
         descriptions: [],
         skills: [],
+        picture: "",
     },
     {
         year: "2012-2012",
@@ -33,31 +35,43 @@ const data = [
         skills: [
             ["IBM Websphere", "Linux"],
         ],
+        picture: "",
     },
 ]
 
-function Experience({ currectSection }) {
+const SECTION_ID = "experience"
+
+function Experience({ section, isNonMobile, addSection }) {
     const [isMouseEnter, setMouseEnter] = useState({})
 
+    useEffect(() => {
+        const tmp = [...document.getElementById(`${SECTION_ID}-section`).querySelectorAll('[id]')].map(e => e.id)
+        addSection(tmp)
+    }, []);
+
     return (
-        <section className="space-y-5" id="experience-section">
-            <span className="text-primaryHeader px-2">Work Experience</span>
+        <section className="space-y-5" id={`${SECTION_ID}-section`} >
+            <span className="text-primaryHeader pl-3">Work Experience</span>
             <div className="grid">
                 {
-                    data.map(({ year, link, title, descriptions, skills }) => (
+                    data.map(({ year, link, title, descriptions, skills, picture }) => (
                         <div
+                            id={`${SECTION_ID}-${title.split(' ').join('')}`}
                             key={title}
-                            className="grid grid-cols-8 p-2 py-7 mx-1 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                            className={`grid grid-cols-8 p-2 py-7 mx-1 ${isNonMobile ? "hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" : `${SECTION_ID}-${title.split(' ').join('')}` === section ? "bg-primarySubContent2 bg-opacity-10 rounded-xl" : ""}`}
                             onMouseEnter={() => setMouseEnter({ [title]: true })}
                             onMouseLeave={() => setMouseEnter({ [title]: false })}
                         >
-                            <div className="col-span-2 text-primarySubContent1 text-sm">{year}</div>
-                            <div className="col-span-6">
+                            <div className="col-span-2 text-primarySubContent1 space-y-4">
+                                <div><span className={`${isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "text-primaryContent" : ""} text-sm`} >{year}</span></div>
+                                {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
+                            </div>
+                            <div className="col-span-6 pl-2">
                                 <div className="flex flex-col space-y-4">
                                     {
                                         link ?
                                             <a
-                                                className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`}
+                                                className={isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? 'text-primaryTitle' : 'text-primaryHeader'}
                                                 href={link} target="_blank" rel="noopener noreferrer"
                                             >
                                                 <span className="pr-1">{title}</span>
@@ -67,7 +81,7 @@ function Experience({ currectSection }) {
                                                 />
                                             </a>
                                             :
-                                            <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
+                                            <span className={isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
                                     }
                                     {
                                         descriptions.map((e, i) => (
@@ -81,7 +95,7 @@ function Experience({ currectSection }) {
                                                     e.map((el, j) => (
                                                         <div
                                                             key={el + j}
-                                                            className={`${isMouseEnter[title] ? "text-primarySubTitle" : "text-primarySubContent1"} text-sm rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1`}
+                                                            className={`${isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "text-primarySubTitle" : "text-primarySubContent1"} text-sm rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1`}
                                                         >
                                                             {el}
                                                         </div>

@@ -11,11 +11,11 @@ const data = {
     link: fileResume,
 }
 
-function Header() {
+function Header({ isNonMobile = true }) {
     const [isMouseEnter, setMouseEnter] = useState(false)
 
     return (
-        <section>
+        <section className={`${!isNonMobile?"pl-3":""}`}>
             <div className="text-2xl md:text-3xl font-medium text-primaryTitle pb-3">{data.name}</div>
             <div className="space-x-2 text-primaryHeader pb-3">
                 <span className="truncate">{data.title}</span>
