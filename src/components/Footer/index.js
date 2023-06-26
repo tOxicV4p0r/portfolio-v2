@@ -1,11 +1,6 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const data = {
-    title: "",
-    descriptions: "Powered by React.js and Tailwind",
-    link: "https://github.com/tOxicV4p0r/portfolio-v2",
-}
+import { data } from "./data"
 
 function Footer() {
 

@@ -1,21 +1,13 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import fileResume from "../../asset/resume.pdf"
-
-const data = {
-    name: "Kraisorn Deelert",
-    title: "Software Developer · between jobs",
-    caption: "From concept to reality, bridging the gap with code, transforming ideas into tangible digital solutions.",
-    btnText: "Download Resume",
-    link: fileResume,
-}
+import { data } from "./data"
 
 function Header({ isNonMobile = true }) {
     const [isMouseEnter, setMouseEnter] = useState(false)
 
     return (
-        <section className={`${!isNonMobile?"pl-3":""}`}>
+        <section className={`${!isNonMobile ? "pl-3" : ""}`}>
             <div className="text-2xl md:text-3xl font-medium text-primaryTitle pb-3">{data.name}</div>
             <div className="space-x-2 text-primaryHeader pb-3">
                 <span className="truncate">{data.title}</span>
