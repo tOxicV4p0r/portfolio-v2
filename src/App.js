@@ -46,7 +46,7 @@ function App() {
       } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
         setCurrectSection(el.sectionId);
       }
-      console.log(currectSection)
+      //console.log(currectSection)
       
     }
     
@@ -60,7 +60,7 @@ function App() {
       const offetTop = document.getElementById(`${el}`).getBoundingClientRect().top;
       const height = document.getElementById(`${el}`).getClientRects()[0].height;
       const viewHeight = document.documentElement.clientHeight * 0.45;
-      console.log(el, offetTop, height, viewHeight)
+      // console.log(el, offetTop, height, viewHeight)
       if (offetTop <= viewHeight) {
         if (offetTop + (height * 0.5) > viewHeight) {
           setCurrectSection(el);

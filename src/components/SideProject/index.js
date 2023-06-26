@@ -67,12 +67,12 @@ function SideProject({ section, isNonMobile, addSection }) {
                         <div
                             id={`${SECTION_ID}-${title.split(' ').join('')}`}
                             key={title}
-                            className="grid grid-cols-8 p-2 py-7 mx-1 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                            className={`grid grid-cols-8 p-2 py-7 mx-1 ${isNonMobile ? "hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl" : `${SECTION_ID}-${title.split(' ').join('')}` === section ? "bg-primarySubContent2 bg-opacity-10 rounded-xl" : ""}`}
                             onMouseEnter={() => setMouseEnter({ [title]: true })}
                             onMouseLeave={() => setMouseEnter({ [title]: false })}
                         >
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
-                                <div><span className="text-sm">{year}</span></div>
+                                <div><span className={`${isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "text-primaryContent" : ""} text-sm`} >{year}</span></div>
                                 {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
                             </div>
                             <div className="col-span-6 pl-2">
@@ -80,7 +80,7 @@ function SideProject({ section, isNonMobile, addSection }) {
                                     {
                                         link ?
                                             <a
-                                                className={`${isMouseEnter[title] ? 'text-primaryTitle' : 'text-primaryHeader'}`}
+                                                className={isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? 'text-primaryTitle' : 'text-primaryHeader'}
                                                 href={link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -88,11 +88,11 @@ function SideProject({ section, isNonMobile, addSection }) {
                                                 <span className="pr-1">{title}</span>
                                                 <FontAwesomeIcon
                                                     icon={faArrowUp}
-                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm transition-all`}
+                                                    className={`${isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm ease-out duration-500`}
                                                 />
                                             </a>
                                             :
-                                            <span className={isMouseEnter[title] ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
+                                            <span className={isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
                                     }
                                     {
                                         materials.length > 0 ?
@@ -128,7 +128,7 @@ function SideProject({ section, isNonMobile, addSection }) {
                                                     e.map((el, j) => (
                                                         <div
                                                             key={el + j}
-                                                            className={`${isMouseEnter[title] ? "text-primarySubTitle" : "text-primarySubContent1"} text-sm rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1`}
+                                                            className={`${isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? "text-primarySubTitle" : "text-primarySubContent1"} text-sm rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1`}
                                                         >
                                                             {el}
                                                         </div>

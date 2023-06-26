@@ -45,7 +45,7 @@ function Experience({ section, isNonMobile, addSection }) {
     const [isMouseEnter, setMouseEnter] = useState({})
 
     useEffect(() => {
-        const tmp = [...document.getElementById(`${SECTION_ID}-section`).querySelectorAll('[id]')].map(e => e.id)
+        const tmp = [...document.getElementById(`${SECTION_ID}-section`).querySelectorAll('[id]')].map(e => e.id);
         addSection(tmp)
     }, []);
 
@@ -72,12 +72,14 @@ function Experience({ section, isNonMobile, addSection }) {
                                         link ?
                                             <a
                                                 className={isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ? 'text-primaryTitle' : 'text-primaryHeader'}
-                                                href={link} target="_blank" rel="noopener noreferrer"
+                                                href={link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
                                             >
                                                 <span className="pr-1">{title}</span>
                                                 <FontAwesomeIcon
                                                     icon={faArrowUp}
-                                                    className={`${isMouseEnter[title] ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm transition-transform`}
+                                                    className={`${isMouseEnter[title] || `${SECTION_ID}-${title.split(' ').join('')}` === section ?  "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm ease-out duration-500`}
                                                 />
                                             </a>
                                             :
