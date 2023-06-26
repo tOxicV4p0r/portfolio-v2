@@ -44,8 +44,8 @@ Simply run the below commands.
 Give a  ⭐  if you like this website!
 ## License
 
-This theme is free and open source software, distributed under the The MIT License. Feel free to use anyway you want.
+This project is free and open source software, distributed under the The MIT License. Feel free to use anyway you want.
 
 ## Credits
 
-This theme was inspired by [brittanychiang.com](https://brittanychiang.com/)
+This project was inspired by [brittanychiang.com](https://brittanychiang.com/)

@@ -5,7 +5,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 const data = [
     {
         year: "2021-2022",
-        link: "#",
+        link: "",
         title: "Fullstack · Sport Analysis System",
         descriptions: [
             "Designing and developing a sports data analysis system that scrapes data from various sports websites, processes it, and presents different profit-making possibilities in real-time for customers.",
