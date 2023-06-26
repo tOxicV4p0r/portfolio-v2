@@ -3,7 +3,7 @@ A simple and minimalist portfolio for developers built with React and TailwindCS
 
 [Blackboy96.xyz](https://blackboy96.xyz/)
 
-![enter image description here](https://raw.githubusercontent.com/tOxicV4p0r/portfolio-v2/main/static/page.png)
+![enter image description here](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/demo.gif?raw=true)
 
 ## Tech Stack
 
