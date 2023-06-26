@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header"
 import NavContent from "./components/NavContent";
 import SideProject from "./components/SideProject";
-import Skill from "./components/Skill";
+// import Skill from "./components/Skill";
 
 const OFFSET_Y = 79;
 const data = {
@@ -27,18 +27,21 @@ function App() {
   const [currectSection, setCurrectSection] = useState(data.sections[0].sectionId);
   const [sectionIds, setSectionId] = useState([]);
 
+  // set components ID at mounted time
   const addSection = (sections) => {
+    // use set to prevent duplicate, when dev mode component loaded twice
     setSectionId((prev) => [...new Set([...prev, ...sections])]);
   }
 
+  // when desktop mode, can scroll only right column
   const handleScroll = (e) => {
-    
+
     for (let i = 0; i < data.sections.length; i++) {
       const el = data.sections[i];
       const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
       const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
       const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
-      // console.log(el.sectionId, offetTop, height)
+
       if (offetTop <= OFFSET_Y) {
         if (offetTop + (height / 2) > OFFSET_Y) {
           setCurrectSection(el.sectionId);
@@ -46,21 +49,18 @@ function App() {
       } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
         setCurrectSection(el.sectionId);
       }
-      //console.log(currectSection)
-      
     }
-    
+
   }
 
+  // when mobile mode, scroll from window
   const handleWindowScroll = () => {
-    // console.log(window.scrollY, sectionIds.length)
     for (let i = 0; i < sectionIds.length; i++) {
-      // console.log(i)
       const el = sectionIds[i];
       const offetTop = document.getElementById(`${el}`).getBoundingClientRect().top;
       const height = document.getElementById(`${el}`).getClientRects()[0].height;
       const viewHeight = document.documentElement.clientHeight * 0.45;
-      // console.log(el, offetTop, height, viewHeight)
+
       if (offetTop <= viewHeight) {
         if (offetTop + (height * 0.5) > viewHeight) {
           setCurrectSection(el);
@@ -71,7 +71,9 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('scroll', handleWindowScroll);
+
     return () => window.removeEventListener('scroll', handleWindowScroll);
+    // eslint-disable-next-line
   }, [sectionIds]);
 
   return (

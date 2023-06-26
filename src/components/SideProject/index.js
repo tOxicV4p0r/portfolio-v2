@@ -11,6 +11,8 @@ function SideProject({ section, isNonMobile, addSection }) {
     useEffect(() => {
         const tmp = [...document.getElementById(`${SECTION_ID}-section`).querySelectorAll('[id]')].map(e => e.id)
         addSection(tmp)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

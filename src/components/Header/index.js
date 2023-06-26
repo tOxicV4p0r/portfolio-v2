@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { data } from "./data"
 
 function Header({ isNonMobile = true }) {
-    const [isMouseEnter, setMouseEnter] = useState(false)
 
     return (
         <section className={`${!isNonMobile ? "pl-3" : ""}`}>
@@ -13,10 +11,7 @@ function Header({ isNonMobile = true }) {
                 <span className="truncate">{data.title}</span>
             </div>
             <div className="text-primaryContent text-sm w-5/6 pb-3">{data.caption}</div>
-            <div
-                className="mt-5"
-                onMouseEnter={() => setMouseEnter(true)}
-                onMouseLeave={() => setMouseEnter(false)}>
+            <div className="mt-5">
                 <a
                     className="px-5 py-3 text-sm rounded-md bg-primaryTitle text-primaryHeader hover:bg-primarySubTitle"
                     href={data.link}

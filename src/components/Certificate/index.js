@@ -11,8 +11,10 @@ function Certificate({ section, isNonMobile, addSection }) {
     useEffect(() => {
         const tmp = [...document.getElementById(`${SECTION_ID}-section`).querySelectorAll('[id]')].map(e => e.id)
         addSection(tmp)
-    }, []);
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    
     return (
         <section className="space-y-5" id={`${SECTION_ID}-section`} >
             <span className="text-primaryHeader pl-3">Certification</span>
