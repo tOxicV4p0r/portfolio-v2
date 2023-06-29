@@ -4,6 +4,6 @@ export const data = {
     name: "Kraisorn Deelert",
     title: "Software Developer · between jobs",
     caption: "From concept to reality, bridging the gap with code, transforming ideas into tangible digital solutions.",
-    btnText: "Download Resume",
+    btnText: "View Resume",
     link: fileResume,
 };

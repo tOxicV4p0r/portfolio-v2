@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// import { faArrowRight, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -102,6 +103,22 @@ function Project({ section, addSection, detail }) {
                             </div>
                         </div>
                     ))
+                }
+                {
+                    /*
+                    data.length > 4 ?
+                        <div className="py-7 mx-1">
+                            <span
+                                className="p-2 cursor-pointer hover:text-primaryTitle"
+                                onMouseEnter={() => setMouseEnter({ 'allproject': true })}
+                                onMouseLeave={() => setMouseEnter({ 'allproject': false })}
+                            >
+                                view all projects
+                                <FontAwesomeIcon icon={faArrowRight} className={`${isMouseEnter['allproject'] ? "translate-x-2" : ""} text-sm ease-out duration-500 pl-1`} />
+                            </span>
+                        </div>
+                        : null
+                    */
                 }
             </div>
         </section>

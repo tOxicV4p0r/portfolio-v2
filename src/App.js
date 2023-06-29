@@ -73,15 +73,26 @@ function App() {
     } catch (e) { /* empty */ }
   };
 
+  const handleWheel = (e) => {
+    const offSet = document.getElementById(SCROLL_SECTION_ID).getBoundingClientRect().top;
+    const firstOffetTop = document.getElementById(data.sections[0].sectionId).getBoundingClientRect().top - offSet;
+    const startPosition = Math.abs(firstOffetTop);
+    document.getElementById(SCROLL_SECTION_ID).scroll(0, startPosition + e.deltaY);
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', handleWindowScroll);
+    window.addEventListener('wheel', handleWheel);
 
-    return () => window.removeEventListener('scroll', handleWindowScroll);
+    return () => {
+      window.removeEventListener('scroll', handleWindowScroll);
+      window.removeEventListener('wheel', handleWheel);
+    }
     // eslint-disable-next-line
   }, [sectionIds]);
 
   return (
-    <main className="max-w-6xl mx-auto">
+    <main className="max-w-6xl mx-auto" >
       <div className="px-5 pb-7 pt-14 font-poppins tracking-wide block lg:flex h-screen">
         <div className="w-full lg:w-5/6 grid gap-10 pb-10 lg:pb-0">
           <Header />
