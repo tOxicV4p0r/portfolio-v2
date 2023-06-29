@@ -5,13 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { scrollSmooth } from "../../service/scroll";
 
-function NavContent({ data, section, scrollSectionId, fisrtSectionOfScroll }) {
+function NavContent({ data, section }) {
     const [isMouseEnter, setIsMouseEnter] = useState(false);
 
     const handleClick = (anchor) => {
         const element = document.getElementById(anchor);
         if (element) {
-            scrollSmooth(scrollSectionId, fisrtSectionOfScroll, anchor, 700);
+            // offset mt-14 = 56px
+            scrollSmooth(anchor, 500, 56);
 
             // default scroll style
             // element.scrollIntoView({ behavior: "smooth", block: "start", });

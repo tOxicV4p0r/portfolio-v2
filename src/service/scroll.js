@@ -1,17 +1,10 @@
 import { easeInOutCubic } from "./easing";
 
-export const scrollSmooth = (rootElementId, firstElementId, toElementId, duration) => {
-    const toElement = document.getElementById(toElementId);
-    const firstElement = document.getElementById(firstElementId);
-    const offSet = document.getElementById(rootElementId).getBoundingClientRect().top;
+export const scrollSmooth = (toElementId, duration, offsetTop) => {
 
-    const toOffetTop = toElement.getBoundingClientRect().top;
-    const firstOffetTop = firstElement.getBoundingClientRect().top - offSet;
-    const startPosition = Math.abs(firstOffetTop);
-    const distance = toOffetTop - offSet;
-
+    const startPosition = window.scrollY;
+    const distance = (document.getElementById(toElementId).getClientRects()[0].top) - offsetTop;
     const extendDuration = duration + (Math.abs(distance) * 0.5);
-    // console.log("🚀 ~ file: scroll.js:14 ~ scrollSmooth ~ distance: ", distance, "startPosition:", startPosition)
 
     if (distance === 0) {
         return;
@@ -29,10 +22,9 @@ export const scrollSmooth = (rootElementId, firstElementId, toElementId, duratio
         // current position that it has to move between 0..1
         // time input between 0..1 , tell the function that where they are.
         const current = easeInOutCubic(Math.min(timeRation / 100, 1));
-        // console.log("🚀 ~ file: scroll.js:27 ~ step ~ num:", current, timeRation)
 
         // do scroll
-        document.getElementById(rootElementId).scroll(0, startPosition + (distance * current));
+        window.scroll(0, startPosition + (distance * current));
 
         if (current < 1) {
             window.requestAnimationFrame(step);

@@ -21,7 +21,7 @@ function Project({ section, addSection, detail }) {
     }, []);
 
     return (
-        <section className="space-y-5" id={id} >
+        <section className="space-y-5 scroll-mt-14" id={id} >
             <span className="text-primaryHeader pl-3">{sectionTitle}</span>
             <div className="grid">
                 {

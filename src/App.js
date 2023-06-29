@@ -33,101 +33,67 @@ function App() {
     setSectionId((prev) => [...new Set([...prev, ...sections])]);
   };
 
-  // when desktop mode, can scroll only right column
   const handleScroll = () => {
+
     try {
-      const firstOffetTop = document.getElementById(SCROLL_SECTION_ID).getBoundingClientRect().top;
+      // windows mode
+      if (isNonMobile) {
 
-      for (let i = 0; i < data.sections.length; i++) {
-        const el = data.sections[i];
-        const elementOffetTop = document.getElementById(el.sectionId).getBoundingClientRect().top;
-        const height = document.getElementById(el.sectionId).getClientRects()[0].height;
-        const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
+        for (let i = 0; i < data.sections.length; i++) {
+          const el = data.sections[i];
+          const elementOffetTop = document.getElementById(el.sectionId).getClientRects()[0].top;
+          const height = document.getElementById(el.sectionId).getClientRects()[0].height;
+          const viewHeight = window.screen.height * 0.3;
 
-        if (elementOffetTop <= firstOffetTop) {
-          if (elementOffetTop + (height / 2) > firstOffetTop) {
+          if (elementOffetTop <= 0) {
+            if (elementOffetTop + height > viewHeight) {
+              setCurrectSection(el.sectionId);
+            }
+          } else if (elementOffetTop > 0 && elementOffetTop < viewHeight) {
             setCurrectSection(el.sectionId);
           }
-        } else if (elementOffetTop > firstOffetTop && elementOffetTop < rootHeight) {
-          setCurrectSection(el.sectionId);
         }
-      }
-    } catch (e) { /* empty */ }
-  };
 
-  // when mobile mode, scroll from window
-  const handleWindowScroll = () => {
-    try {
-      for (let i = 0; i < sectionIds.length; i++) {
-        const el = sectionIds[i];
-        const offetTop = document.getElementById(`${el}`).getBoundingClientRect().top;
-        const height = document.getElementById(`${el}`).getClientRects()[0].height;
-        const viewHeight = document.documentElement.clientHeight * 0.45;
+      } else {
+        // mobile mode
 
-        if (offetTop <= viewHeight) {
-          if (offetTop + (height * 0.5) > viewHeight) {
-            setCurrectSection(el);
+        for (let i = 0; i < sectionIds.length; i++) {
+          const el = sectionIds[i];
+          const elementOffetTop = document.getElementById(el).getClientRects()[0].top;
+          const height = document.getElementById(el).getClientRects()[0].height;
+          const viewHeight = window.screen.height * 0.4;
+
+          if (elementOffetTop <= viewHeight) {
+            if (elementOffetTop + (height * 0.5) > viewHeight) {
+              setCurrectSection(el);
+            }
           }
         }
+
       }
-    } catch (e) { /* empty */ }
 
-    // navcontent
-    try {
-      const firstOffetTop = document.getElementById(SCROLL_SECTION_ID).getBoundingClientRect().top;
-
-      for (let i = 0; i < data.sections.length; i++) {
-        const el = data.sections[i];
-        const elementOffetTop = document.getElementById(el.sectionId).getBoundingClientRect().top;
-        const height = document.getElementById(el.sectionId).getClientRects()[0].height;
-        const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
-
-        if (elementOffetTop <= firstOffetTop) {
-          if (elementOffetTop + (height / 2) > firstOffetTop) {
-            setCurrectSection(el.sectionId);
-          }
-        } else if (elementOffetTop > firstOffetTop && elementOffetTop < rootHeight) {
-          setCurrectSection(el.sectionId);
-        }
-      }
-    } catch (e) { /* empty */ }
+    } catch (e) {/* empty */ }
   };
-
-  const handleWheel = (e) => {
-    /*
-    // no handle inside content section
-    const { x, y, width, height } = document.getElementById(SCROLL_SECTION_ID).getClientRects()[0];
-    if ((e.clientX < x || e.clientX > (x + width)) && (e.clientY > y || e.clientY < (y + height))) {
-      const offSet = document.getElementById(SCROLL_SECTION_ID).getBoundingClientRect().top;
-      const firstOffetTop = document.getElementById(data.sections[0].sectionId).getBoundingClientRect().top - offSet;
-      const startPosition = Math.abs(firstOffetTop);
-      document.getElementById(SCROLL_SECTION_ID).scroll(0, startPosition + (e.deltaY * 0.5));
-    }
-    */
-  }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleWindowScroll);
-    window.addEventListener('wheel', handleWheel);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleWindowScroll);
-      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('scroll', handleScroll);
     }
-    // eslint-disable-next-line
-  }, [sectionIds]);
+  }, [isNonMobile]);// eslint-disable-line
 
   return (
     <main className="max-w-6xl mx-auto" >
       <div className="grid lg:grid-cols-[2fr_3fr] px-5 pb-7 pt-14 font-poppins tracking-wide">
         <div>
-          <div className="sticky top-14 h-[90vh] flex flex-col justify-between">
+          <div className="sticky top-14 lg:h-[90vh] flex flex-col justify-between gap-14">
             <Header />
-            {isNonMobile ? <NavContent data={data} section={currectSection} scrollSectionId={SCROLL_SECTION_ID} fisrtSectionOfScroll={data.sections[0].sectionId} /> : null}
+            {isNonMobile ? <NavContent data={data} section={currectSection} /> : null}
             <Contact />
           </div>
         </div>
-        <div id={SCROLL_SECTION_ID} className="w-full no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
+        <div id={SCROLL_SECTION_ID} className="w-full no-scrollbar grid gap-32 lg:gap-40">
           <About
             detail={data.sections[data.sections.findIndex(e => e.title === "About")]}
           />
