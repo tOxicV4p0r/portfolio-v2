@@ -1,9 +1,23 @@
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import picFashionEcommer from "../../asset/fashionecommer.png"
 import picLittleLemon from "../../asset/littlelemon.png"
 import picSocialMern from "../../asset/social_mern.png"
 import picAxieBot from "../../asset/axiebot.png"
 
 export const data = [
+    {
+        year: "June 2023",
+        link: "https://clientecommer-nhvl2sce2q-as.a.run.app/",
+        materials: [
+            { type: faGithub, link: "https://github.com/tOxicV4p0r/FULLSTACK-React-Ecommerce" },
+        ],
+        title: "Fashion Ecommerce",
+        descriptions: ["The project serves as an opportunity for me to deepen my understanding of React, Starpi CMS backend, and setting up a payment system with Stripe."],
+        skills: [
+            ["React","MUI","Starpi","Stripe"],
+        ],
+        picture: picFashionEcommer,
+    },
     {
         year: "June 2023",
         link: "https://little-lemon-image-nhvl2sce2q-uc.a.run.app/",
@@ -24,7 +38,7 @@ export const data = [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/social_mern_edroh/" },
             { type: faYoutube, link: "https://youtu.be/BdgSbmS4_qg" },
         ],
-        title: "Social MERN stack",
+        title: "Social Platform Demo",
         descriptions: ["This demo project is based on EdRoh's tutorial video on Youtube. I have fixed some bugs and added several features."],
         skills: [
             ["React", "Redux", "MUI"],

@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header"
 import NavContent from "./components/NavContent";
 import SideProject from "./components/SideProject";
-// import Skill from "./components/Skill";
+import Skill from "./components/Skill";
 
 const OFFSET_Y = 79;
 const data = {
@@ -35,38 +35,40 @@ function App() {
 
   // when desktop mode, can scroll only right column
   const handleScroll = (e) => {
+    try {
+      for (let i = 0; i < data.sections.length; i++) {
+        const el = data.sections[i];
+        const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
+        const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
+        const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
 
-    for (let i = 0; i < data.sections.length; i++) {
-      const el = data.sections[i];
-      const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
-      const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
-      const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
-
-      if (offetTop <= OFFSET_Y) {
-        if (offetTop + (height / 2) > OFFSET_Y) {
+        if (offetTop <= OFFSET_Y) {
+          if (offetTop + (height / 2) > OFFSET_Y) {
+            setCurrectSection(el.sectionId);
+          }
+        } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
           setCurrectSection(el.sectionId);
         }
-      } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
-        setCurrectSection(el.sectionId);
       }
-    }
-
+    } catch (e) { }
   }
 
   // when mobile mode, scroll from window
   const handleWindowScroll = () => {
-    for (let i = 0; i < sectionIds.length; i++) {
-      const el = sectionIds[i];
-      const offetTop = document.getElementById(`${el}`).getBoundingClientRect().top;
-      const height = document.getElementById(`${el}`).getClientRects()[0].height;
-      const viewHeight = document.documentElement.clientHeight * 0.45;
+    try {
+      for (let i = 0; i < sectionIds.length; i++) {
+        const el = sectionIds[i];
+        const offetTop = document.getElementById(`${el}`).getBoundingClientRect().top;
+        const height = document.getElementById(`${el}`).getClientRects()[0].height;
+        const viewHeight = document.documentElement.clientHeight * 0.45;
 
-      if (offetTop <= viewHeight) {
-        if (offetTop + (height * 0.5) > viewHeight) {
-          setCurrectSection(el);
+        if (offetTop <= viewHeight) {
+          if (offetTop + (height * 0.5) > viewHeight) {
+            setCurrectSection(el);
+          }
         }
       }
-    }
+    } catch (e) { }
   }
 
   useEffect(() => {
@@ -84,7 +86,7 @@ function App() {
           {isNonMobile && <NavContent data={data} section={currectSection} />}
           <Contact isNonMobile={isNonMobile} />
         </div>
-        <div className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
+        <div id="rightscroll" className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
           <About />
           {/* <Skill /> */}
           <Experience isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />

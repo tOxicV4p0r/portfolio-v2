@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { scrollSmooth } from "../../service/scroll";
 
 function NavContent({ data, section }) {
     const [isMouseEnter, setIsMouseEnter] = useState(false)
@@ -9,10 +10,13 @@ function NavContent({ data, section }) {
         const id = `${anchor}-section`;
         const element = document.getElementById(id);
         if (element) {
+            /*
             element.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
             });
+            */
+            scrollSmooth('rightscroll', 'about-section', `${anchor}-section`, 700)
         }
     }
 

@@ -22,16 +22,16 @@ const data = [
 function Skill() {
     return (
         <section className="space-y-5" id="skill-section">
-            <span className="text-primaryHeader px-2">Skill</span>
+            <span className="text-primaryHeader pl-3">Skill</span>
             <div className="grid">
                 {
                     data.map(({ section, description }) => (
                         <div
                             key={section}
-                            className="grid grid-cols-8 p-2 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                            className="grid grid-cols-8 p-2 mx-1 hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
                         >
                             <div className="col-span-2 text-primarySubContent1 truncate">{section}</div>
-                            <div className="col-span-6">
+                            <div className="col-span-6 pl-2">
                                 <div className="flex flex-col space-y-2">
                                     <div className="text-primaryContent">{description}</div>
                                 </div>
