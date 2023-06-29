@@ -1,8 +1,8 @@
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import picFashionEcommer from "../../asset/fashionecommer.png"
-import picLittleLemon from "../../asset/littlelemon.png"
-import picSocialMern from "../../asset/social_mern.png"
-import picAxieBot from "../../asset/axiebot.png"
+import picFashionEcommer from "../asset/fashionecommer.png"
+import picLittleLemon from "../asset/littlelemon.png"
+import picSocialMern from "../asset/social_mern.png"
+import picAxieBot from "../asset/axiebot.png"
 
 export const data = [
     {
@@ -14,7 +14,7 @@ export const data = [
         title: "Fashion Ecommerce",
         descriptions: ["The project serves as an opportunity for me to deepen my understanding of React, Starpi CMS backend, and setting up a payment system with Stripe."],
         skills: [
-            ["React","MUI","Starpi","Stripe"],
+            ["React", "MUI", "Starpi", "Stripe"],
         ],
         picture: picFashionEcommer,
     },

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { data } from "./data"
+import { data } from "../../contents/certification";
 import useMediaQuery from "../../hook/useMediaQuery";
 
 function Certification({ section, addSection, detail }) {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { data } from "./data"
+import { data } from "../../contents/contact"
 import useMediaQuery from "../../hook/useMediaQuery";
 
 function Contact() {

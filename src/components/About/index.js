@@ -1,4 +1,4 @@
-import { data } from "./data"
+import { data } from "../../contents/about"
 
 function About({ detail }) {
     const { sectionId: id, title } = detail;
