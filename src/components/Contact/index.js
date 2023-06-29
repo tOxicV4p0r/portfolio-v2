@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { data } from "./data"
+import useMediaQuery from "../../hook/useMediaQuery";
 
-function Contact({isNonMobile = true}) {
+function Contact() {
+    const isNonMobile = useMediaQuery("(min-width:1024px)")
     const [isMouseEnter, setMouseEnter] = useState({})
 
     return (

@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { data } from "./data"
+import useMediaQuery from "../../hook/useMediaQuery";
 
-function Header({ isNonMobile = true }) {
+function Header() {
+    const isNonMobile = useMediaQuery("(min-width:1024px)")
 
     return (
         <section className={`${!isNonMobile ? "pl-3" : ""}`}>

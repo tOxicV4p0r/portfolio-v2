@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import useMediaQuery from "./hook/useMediaQuery";
 import About from "./components/About";
-import Certificate from "./components/Certificate";
+import Certification from "./components/Certification";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Header from "./components/Header"
 import NavContent from "./components/NavContent";
-import SideProject from "./components/SideProject";
-import Skill from "./components/Skill";
+import Project from "./components/Project";
+// import Skill from "./components/Skill";
 
-const OFFSET_Y = 79;
+const SCROLL_SECTION_ID = "content-section";
+
 const data = {
-  title: "",
-  descriptions: "Powered by React.js and Tailwind",
   sections: [
-    { title: "About", sectionId: "about" },
-    { title: "Experience", sectionId: "experience" },
-    { title: "Project", sectionId: "sideproject" },
-    { title: "Certification", sectionId: "certification" },
+    { title: "About", sectionId: "about-section" },
+    { title: "Experience", sectionId: "experience-section" },
+    { title: "Project", sectionId: "sideproject-section" },
+    { title: "Certification", sectionId: "certification-section" },
   ]
 }
 
@@ -34,19 +33,21 @@ function App() {
   }
 
   // when desktop mode, can scroll only right column
-  const handleScroll = (e) => {
+  const handleScroll = () => {
     try {
+      const firstOffetTop = document.getElementById(SCROLL_SECTION_ID).getBoundingClientRect().top;
+
       for (let i = 0; i < data.sections.length; i++) {
         const el = data.sections[i];
-        const offetTop = document.getElementById(`${el.sectionId}-section`).getBoundingClientRect().top;
-        const height = document.getElementById(`${el.sectionId}-section`).getClientRects()[0].height;
+        const elementOffetTop = document.getElementById(el.sectionId).getBoundingClientRect().top;
+        const height = document.getElementById(el.sectionId).getClientRects()[0].height;
         const rootHeight = document.getElementById('root').getClientRects()[0].height * 0.4;
 
-        if (offetTop <= OFFSET_Y) {
-          if (offetTop + (height / 2) > OFFSET_Y) {
+        if (elementOffetTop <= firstOffetTop) {
+          if (elementOffetTop + (height / 2) > firstOffetTop) {
             setCurrectSection(el.sectionId);
           }
-        } else if (offetTop > OFFSET_Y && offetTop < rootHeight) {
+        } else if (elementOffetTop > firstOffetTop && elementOffetTop < rootHeight) {
           setCurrectSection(el.sectionId);
         }
       }
@@ -82,16 +83,30 @@ function App() {
     <main className="max-w-6xl mx-auto">
       <div className="px-5 pb-7 pt-14 font-poppins tracking-wide block lg:flex h-screen">
         <div className="w-full lg:w-5/6 grid gap-10 pb-10 lg:pb-0">
-          <Header isNonMobile={isNonMobile} />
-          {isNonMobile && <NavContent data={data} section={currectSection} />}
-          <Contact isNonMobile={isNonMobile} />
+          <Header />
+          {isNonMobile ? <NavContent data={data} section={currectSection} scrollSectionId={SCROLL_SECTION_ID} fisrtSectionOfScroll={data.sections[0].sectionId} /> : null}
+          <Contact />
         </div>
-        <div id="rightscroll" className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
-          <About />
+        <div id={SCROLL_SECTION_ID} className="w-full overflow-y-scroll no-scrollbar grid gap-32 lg:gap-40" onScroll={handleScroll}>
+          <About
+            detail={data.sections[data.sections.findIndex(e => e.title === "About")]}
+          />
           {/* <Skill /> */}
-          <Experience isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />
-          <SideProject isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />
-          <Certificate isNonMobile={isNonMobile} section={currectSection} addSection={addSection} />
+          <Experience
+            detail={data.sections[data.sections.findIndex(e => e.title === "Experience")]}
+            section={currectSection}
+            addSection={addSection}
+          />
+          <Project
+            detail={data.sections[data.sections.findIndex(e => e.title === "Project")]}
+            section={currectSection}
+            addSection={addSection}
+          />
+          <Certification
+            detail={data.sections[data.sections.findIndex(e => e.title === "Certification")]}
+            section={currectSection}
+            addSection={addSection}
+          />
           <Footer />
         </div>
       </div>

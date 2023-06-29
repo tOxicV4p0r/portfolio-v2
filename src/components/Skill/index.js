@@ -19,10 +19,13 @@ const data = [
     },
 ]
 
-function Skill() {
+function Skill({ detail }) {
+
+    const { sectionId: id, title: sectionTitle } = detail;
+
     return (
-        <section className="space-y-5" id="skill-section">
-            <span className="text-primaryHeader pl-3">Skill</span>
+        <section className="space-y-5" id={id}>
+            <span className="text-primaryHeader pl-3">{sectionTitle}</span>
             <div className="grid">
                 {
                     data.map(({ section, description }) => (

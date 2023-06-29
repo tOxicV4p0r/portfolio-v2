@@ -3,30 +3,26 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { scrollSmooth } from "../../service/scroll";
 
-function NavContent({ data, section }) {
-    const [isMouseEnter, setIsMouseEnter] = useState(false)
+function NavContent({ data, section, scrollSectionId, fisrtSectionOfScroll }) {
+    const [isMouseEnter, setIsMouseEnter] = useState(false);
 
     const handleClick = (anchor) => {
-        const id = `${anchor}-section`;
-        const element = document.getElementById(id);
+        const element = document.getElementById(anchor);
         if (element) {
-            /*
-            element.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
-            */
-            scrollSmooth('rightscroll', 'about-section', `${anchor}-section`, 700)
+            scrollSmooth(scrollSectionId, fisrtSectionOfScroll, anchor, 700);
+
+            // default scroll style
+            // element.scrollIntoView({ behavior: "smooth", block: "start", });
         }
     }
 
     return (
         <section>
-            <div className="">
+            <div>
                 {
                     data.sections.map((e, i) => (
                         <div
-                            key={i}
+                            key={`${e.sectionId}-${i}`}
                             onClick={() => handleClick(e.sectionId)}
                             onMouseEnter={() => setIsMouseEnter({ [e.sectionId]: true })}
                             onMouseLeave={() => setIsMouseEnter({ [e.sectionId]: false })}
