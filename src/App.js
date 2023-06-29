@@ -34,7 +34,6 @@ function App() {
   };
 
   const handleScroll = () => {
-
     try {
       // windows mode
       if (isNonMobile) {
@@ -56,7 +55,6 @@ function App() {
 
       } else {
         // mobile mode
-
         for (let i = 0; i < sectionIds.length; i++) {
           const el = sectionIds[i];
           const elementOffetTop = document.getElementById(el).getClientRects()[0].top;
@@ -81,7 +79,7 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     }
-  }, [isNonMobile]);// eslint-disable-line
+  }, [isNonMobile, sectionIds]);// eslint-disable-line
 
   return (
     <main className="max-w-6xl mx-auto" >
