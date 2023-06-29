@@ -1,4 +1,5 @@
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 import picAxieBot from "../asset/axiebot.png";
 import picFashionEcommer from "../asset/fashionecommer.png";
@@ -6,6 +7,20 @@ import picLittleLemon from "../asset/littlelemon.png";
 import picSocialMern from "../asset/social_mern.png";
 
 export const data = [
+    {
+        year: "June 2023",
+        link: "https://blackboy96.xyz/",
+        materials: [
+            { type: faGithub, link: "https://github.com/tOxicV4p0r/portfolio-v2" },
+            { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-portfolio-website-945508dd9637" },
+        ],
+        title: "Portfolio V2",
+        descriptions: ["A simple and minimalist portfolio for developers built with React and TailwindCSS, designed to be clean and fast."],
+        skills: [
+            ["React", "TailwindCSS"],
+        ],
+        picture: "https://github.com/tOxicV4p0r/portfolio-v2/raw/main/static/demo.gif?raw=true",
+    },
     {
         year: "June 2023",
         link: "https://clientecommer-nhvl2sce2q-as.a.run.app/",
