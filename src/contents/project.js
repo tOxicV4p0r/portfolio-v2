@@ -1,8 +1,9 @@
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import picFashionEcommer from "../asset/fashionecommer.png"
-import picLittleLemon from "../asset/littlelemon.png"
-import picSocialMern from "../asset/social_mern.png"
-import picAxieBot from "../asset/axiebot.png"
+
+import picAxieBot from "../asset/axiebot.png";
+import picFashionEcommer from "../asset/fashionecommer.png";
+import picLittleLemon from "../asset/littlelemon.png";
+import picSocialMern from "../asset/social_mern.png";
 
 export const data = [
     {
@@ -57,4 +58,4 @@ export const data = [
         ],
         picture: picAxieBot,
     }
-]
+];

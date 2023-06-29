@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import useMediaQuery from "./hook/useMediaQuery";
+
 import About from "./components/About";
 import Certification from "./components/Certification";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
-import Header from "./components/Header"
+import Header from "./components/Header";
 import NavContent from "./components/NavContent";
 import Project from "./components/Project";
 // import Skill from "./components/Skill";
+import useMediaQuery from "./hook/useMediaQuery";
 
 const SCROLL_SECTION_ID = "content-section";
 
@@ -19,10 +20,10 @@ const data = {
     { title: "Project", sectionId: "sideproject-section" },
     { title: "Certification", sectionId: "certification-section" },
   ]
-}
+};
 
 function App() {
-  const isNonMobile = useMediaQuery("(min-width:1024px)")
+  const isNonMobile = useMediaQuery("(min-width:1024px)");
   const [currectSection, setCurrectSection] = useState(data.sections[0].sectionId);
   const [sectionIds, setSectionId] = useState([]);
 
@@ -30,7 +31,7 @@ function App() {
   const addSection = (sections) => {
     // use set to prevent duplicate, when dev mode component loaded twice
     setSectionId((prev) => [...new Set([...prev, ...sections])]);
-  }
+  };
 
   // when desktop mode, can scroll only right column
   const handleScroll = () => {
@@ -51,8 +52,8 @@ function App() {
           setCurrectSection(el.sectionId);
         }
       }
-    } catch (e) { }
-  }
+    } catch (e) { /* empty */ }
+  };
 
   // when mobile mode, scroll from window
   const handleWindowScroll = () => {
@@ -69,8 +70,8 @@ function App() {
           }
         }
       }
-    } catch (e) { }
-  }
+    } catch (e) { /* empty */ }
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleWindowScroll);

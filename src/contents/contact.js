@@ -1,4 +1,4 @@
-import { faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 export const data = [
     {
@@ -19,4 +19,4 @@ export const data = [
         link: "https://www.linkedin.com/in/kraisorn-deelert/",
         icon: faLinkedin,
     },
-]
+];

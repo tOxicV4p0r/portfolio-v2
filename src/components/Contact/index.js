@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { data } from "../../contents/contact"
+
+import { data } from "../../contents/contact";
 import useMediaQuery from "../../hook/useMediaQuery";
 
 function Contact() {
-    const isNonMobile = useMediaQuery("(min-width:1024px)")
-    const [isMouseEnter, setMouseEnter] = useState({})
+    const isNonMobile = useMediaQuery("(min-width:1024px)");
+    const [isMouseEnter, setMouseEnter] = useState({});
 
     return (
         <section className={`${!isNonMobile?"pl-3":""} flex items-end pb-10 mb-10 lg:pb-0`}>
@@ -21,7 +23,7 @@ function Contact() {
                 }
             </div>
         </section>
-    )
-};
+    );
+}
 
 export default Contact;

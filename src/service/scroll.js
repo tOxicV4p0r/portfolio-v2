@@ -13,8 +13,9 @@ export const scrollSmooth = (rootElementId, firstElementId, toElementId, duratio
     const extendDuration = duration + (Math.abs(distance) * 0.5);
     // console.log("🚀 ~ file: scroll.js:14 ~ scrollSmooth ~ distance: ", distance, "startPosition:", startPosition)
 
-    if (distance === 0)
+    if (distance === 0) {
         return;
+    }
 
     let startTimeStamp;
     function step(timeStamp) {
@@ -33,8 +34,9 @@ export const scrollSmooth = (rootElementId, firstElementId, toElementId, duratio
         // do scroll
         document.getElementById(rootElementId).scroll(0, startPosition + (distance * current));
 
-        if (current < 1)
+        if (current < 1) {
             window.requestAnimationFrame(step);
+        }
     }
 
     window.requestAnimationFrame(step);

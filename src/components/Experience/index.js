@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { data } from "../../contents/experience"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { data } from "../../contents/experience";
 import useMediaQuery from "../../hook/useMediaQuery";
 
 function Experience({ section, addSection, detail }) {
-    const isNonMobile = useMediaQuery("(min-width:1024px)")
-    const [isMouseEnter, setMouseEnter] = useState({})
+    const isNonMobile = useMediaQuery("(min-width:1024px)");
+    const [isMouseEnter, setMouseEnter] = useState({});
 
     const { sectionId: id, title: sectionTitle } = detail;
 
     useEffect(() => {
         const tmp = [...document.getElementById(id).querySelectorAll('[id]')].map(e => e.id);
-        addSection(tmp)
+        addSection(tmp);
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -82,6 +84,6 @@ function Experience({ section, addSection, detail }) {
             </div>
         </section>
     );
-};
+}
 
 export default Experience;

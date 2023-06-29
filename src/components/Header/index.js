@@ -1,10 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { data } from "./data"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { data } from "../../contents/header";
 import useMediaQuery from "../../hook/useMediaQuery";
 
 function Header() {
-    const isNonMobile = useMediaQuery("(min-width:1024px)")
+    const isNonMobile = useMediaQuery("(min-width:1024px)");
 
     return (
         <section className={`${!isNonMobile ? "pl-3" : ""}`}>
@@ -29,6 +30,6 @@ function Header() {
             </div>
         </section>
     );
-};
+}
 
 export default Header;

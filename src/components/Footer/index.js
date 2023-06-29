@@ -1,5 +1,6 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { data } from "../../contents/footer";
 
 function Footer() {
@@ -11,7 +12,7 @@ function Footer() {
                 <a href={data.link} className="px-3" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
             </div>
         </section>
-    )
-};
+    );
+}
 
 export default Footer;

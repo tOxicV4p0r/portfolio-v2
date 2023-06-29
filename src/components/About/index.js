@@ -1,4 +1,4 @@
-import { data } from "../../contents/about"
+import { data } from "../../contents/about";
 
 function About({ detail }) {
     const { sectionId: id, title } = detail;
@@ -11,6 +11,6 @@ function About({ detail }) {
             </div>
         </section>
     );
-};
+}
 
 export default About;

@@ -1,4 +1,4 @@
-import picMeta from "../asset/meta.png"
+import picMeta from "../asset/meta.png";
 
 export const data = [
     {
@@ -28,4 +28,4 @@ export const data = [
         ],
         picture: picMeta,
     },
-]
+];

@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { data } from "../../contents/project"
 import useMediaQuery from "../../hook/useMediaQuery";
 
@@ -103,7 +105,7 @@ function Project({ section, addSection, detail }) {
                 }
             </div>
         </section>
-    )
-};
+    );
+}
 
 export default Project;

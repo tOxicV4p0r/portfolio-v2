@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { data } from "../../contents/certification";
 import useMediaQuery from "../../hook/useMediaQuery";
 
 function Certification({ section, addSection, detail }) {
-    const isNonMobile = useMediaQuery("(min-width:1024px)")
-    const [isMouseEnter, setMouseEnter] = useState({})
+    const isNonMobile = useMediaQuery("(min-width:1024px)");
+    const [isMouseEnter, setMouseEnter] = useState({});
 
     const { sectionId: id, title: sectionTitle } = detail;
 
@@ -81,7 +83,7 @@ function Certification({ section, addSection, detail }) {
                 }
             </div>
         </section>
-    )
-};
+    );
+}
 
 export default Certification;

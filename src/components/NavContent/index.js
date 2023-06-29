@@ -1,6 +1,8 @@
 import { useState } from "react";
+
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { scrollSmooth } from "../../service/scroll";
 
 function NavContent({ data, section, scrollSectionId, fisrtSectionOfScroll }) {
@@ -14,7 +16,7 @@ function NavContent({ data, section, scrollSectionId, fisrtSectionOfScroll }) {
             // default scroll style
             // element.scrollIntoView({ behavior: "smooth", block: "start", });
         }
-    }
+    };
 
     return (
         <section>
@@ -38,7 +40,7 @@ function NavContent({ data, section, scrollSectionId, fisrtSectionOfScroll }) {
                 }
             </div>
         </section>
-    )
-};
+    );
+}
 
 export default NavContent;
