@@ -42,14 +42,14 @@ Since I’m planning to start applying for jobs. I started thinking about how to
 
 ## Design concept
 
-I start by seeking inspiration, determining the preferred style. The first thing I do is explore other people’s portfolios, observing the design I like and trying to replicate them. One that caught my eye was that of  [BrittanyChiang](https://brittanychiang.com/), so I took it as a starting point for inspiration.
+I start by seeking inspiration, determining the preferred style. The first thing I do is explore other developer’s portfolios, observing the design I like and trying to replicate them. One that caught my eye was that of  [BrittanyChiang](https://brittanychiang.com/), so I took it as a starting point for inspiration.
 
 Now, it’s time to get hands-on and start laying down the framework. begin by outlining the structure and layout.
 ![Desktop layout](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/S__19857414.jpg?raw=true)
 ![Mobile layout](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/S__19857413.jpg?raw=true)
 
 ## Layout format used
-The desired layout is to have a fixed column on the left and the ability to scroll only the right side. After trying various approaches, I finally achieved the desired result by using a combination of grid layout and setting the right column as sticky. This allow the right column to scroll smoothly at any point on the screen.
+The desired layout is to have a fixed column on the left and the ability to scroll only the right side. After trying various approaches, I finally achieved the desired result by using a combination of grid layout and setting the left column as sticky. This allow the right column to scroll smoothly at any point on the screen.
 
 ## Additional task
 
@@ -107,24 +107,24 @@ const  scrollSmooth  = (toElementId, duration, offsetTop) => {
    }
 
    let  startTimeStamp;
-      function  step(timeStamp) {
-         if (startTimeStamp  ===  undefined) {
-            startTimeStamp  =  timeStamp;
-         }
-         
-         const  elapsed  =  timeStamp  -  startTimeStamp;
-         const  timeRation  =  elapsed  / (extendDuration  *  0.01);
+   function  step(timeStamp) {
+      if (startTimeStamp  ===  undefined) {
+         startTimeStamp  =  timeStamp;
+      }
+      
+      const  elapsed  =  timeStamp  -  startTimeStamp;
+      const  timeRation  =  elapsed  / (extendDuration  *  0.01);
 
-         // The current position that has to move is within range between 0..1
-         // The time input range between 0..1 , indicating the position within the animation.
-         const  current  =  easeInOutCubic(Math.min(timeRation  /  100, 1));
+      // The current position that has to move is within range between 0..1
+      // The time input range between 0..1 , indicating the position within the animation.
+      const  current  =  easeInOutCubic(Math.min(timeRation  /  100, 1));
 
-         // Perform scrolling
-         window.scroll(0, startPosition  + (distance  *  current));
+      // Perform scrolling
+      window.scroll(0, startPosition  + (distance  *  current));
 
-         if (current  <  1) {
-            window.requestAnimationFrame(step);
-         }
+      if (current  <  1) {
+         window.requestAnimationFrame(step);
+      }
    }
 
    window.requestAnimationFrame(step);
