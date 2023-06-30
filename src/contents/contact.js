@@ -1,4 +1,4 @@
-import { faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin, faMedium, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 export const data = [
     {
@@ -6,6 +6,12 @@ export const data = [
         title: "Blackboy96",
         link: "https://www.youtube.com/@blackboi96",
         icon: faYoutube,
+    },
+    {
+        section: "Medium",
+        title: "KDeelert",
+        link: "https://medium.com/@KDeelert",
+        icon: faMedium,
     },
     {
         section: "Github",

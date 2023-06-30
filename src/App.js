@@ -29,7 +29,7 @@ function App() {
 
   // set components ID at mounted time
   const addSection = (sections) => {
-    // use set to prevent duplicate, when dev mode component loaded twice
+    // use Set to prevent duplicates, when in dev mode the component is loaded twice.
     setSectionId((prev) => [...new Set([...prev, ...sections])]);
   };
 
@@ -85,7 +85,7 @@ function App() {
     <main className="max-w-6xl mx-auto" >
       <div className="grid lg:grid-cols-[2fr_3fr] px-5 pb-7 pt-14 font-poppins tracking-wide">
         <div>
-          <div className="sticky top-14 lg:h-[90vh] flex flex-col justify-between gap-14">
+          <div className="sticky top-14 lg:h-[90vh] grid grid-cols-1 grid-rows-[70%_30%] gap-6 lg:grid-rows-[3fr_35%_20%] lg:gap-14">
             <Header />
             {isNonMobile ? <NavContent data={data} section={currectSection} /> : null}
             <Contact />

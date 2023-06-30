@@ -38,7 +38,7 @@ npm start
 
 # Story
 ## How I built portfolio website
-Since I’m planning to start applying for jobs. I started thinking about how to effectively promote myself. I began by planning the necessary skills. Since I lack of working experience in this field, the only thing I can do is to build experience through practice projects and gain understanding of various concepts. Ultimately, one thing that is essential for a developer is a portfolio website. After completing it, I would like to write a summary of the design and the various concepts that I have applied.
+Since I’m planning to start applying for jobs. I started thinking about how to effectively market myself. I began by planning the necessary skills. Since I lack of working experience in this field, the only thing I can do is to build experience through practice projects and gain understanding of various concepts. Ultimately, one thing that is essential for a developer is a portfolio website. After completing it, I would like to write a summary of the design and the various concepts that I have applied.
 
 ## Design concept
 
@@ -58,34 +58,34 @@ The desired layout is to have a fixed column on the left and the ability to scro
 Due to the unsatisfactory scrolling behavior of the window object when we click to select difference sections, we need to implement a custom animation to achieve the desired smoothness. The suitable function for this task is  **requestAnimationFrame** . Here is an example given by  [MNS web docs](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
 
 ```javascript
-    const element = document.getElementById("some-element-you-want-to-animate");  
-    let start, previousTimeStamp;  
-    let done = false;  
-      
-    function  step(timeStamp) {  
-	    if (start === undefined) {  
-		    start = timeStamp;  
-	    }  
-	    const elapsed = timeStamp - start;  
-      
-	    if (previousTimeStamp !== timeStamp) {  
-	    // Math.min() is used here to make sure the element stops at exactly 200px  
-	    const count = Math.min(0.1 * elapsed, 200);  
-	    element.style.transform = `translateX(${count}px)`;  
-	    if (count === 200) 
-		    done = true;  
-	    }  
-	      
-	    if (elapsed < 2000) {  
-		    // Stop the animation after 2 seconds  
-		    previousTimeStamp = timeStamp;  
-		    if (!done) {  
-			    window.requestAnimationFrame(step);  
-		    }  
-	    }  
-    }  
-      
-    window.requestAnimationFrame(step);
+const element = document.getElementById("some-element-you-want-to-animate");  
+let start, previousTimeStamp;  
+let done = false;  
+
+function  step(timeStamp) {  
+   if (start === undefined) {  
+      start = timeStamp;  
+   }  
+   const elapsed = timeStamp - start;  
+
+   if (previousTimeStamp !== timeStamp) {  
+   // Math.min() is used here to make sure the element stops at exactly 200px  
+   const count = Math.min(0.1 * elapsed, 200);  
+   element.style.transform = `translateX(${count}px)`;  
+   if (count === 200) 
+      done = true;  
+   }  
+   
+   if (elapsed < 2000) {  
+      // Stop the animation after 2 seconds  
+      previousTimeStamp = timeStamp;  
+      if (!done) {  
+         window.requestAnimationFrame(step);  
+      }  
+   }  
+}  
+
+window.requestAnimationFrame(step);
 ```
 
 Next, we will modify the code and add an easing function, which can be found here:  [https://easings.net/](https://easings.net/). Specifically, I have chosen the easeInOutCubic function for this purpose.
@@ -97,44 +97,49 @@ The function will accept a value ranging from 0 to 1 as an input and return a va
 By passing the time value as an input, we will obtain the scroll position that we need. The code will be something like this.
 
 ```javascript
-    const  scrollSmooth  = (toElementId, duration, offsetTop) => {
-	    const  startPosition  =  window.scrollY;
-	    const  distance  = (document.getElementById(toElementId).getClientRects()[0].top) -  offsetTop;
-	    const  extendDuration  =  duration  + (Math.abs(distance) *  0.5);
-    
-	    if (distance  ===  0) {   
-		    return;
-	    }
+const  scrollSmooth  = (toElementId, duration, offsetTop) => {
+   const  startPosition  =  window.scrollY;
+   const  distance  = (document.getElementById(toElementId).getClientRects()[0].top) -  offsetTop;
+   const  extendDuration  =  duration  + (Math.abs(distance) *  0.5);
 
-		let  startTimeStamp;
-	    function  step(timeStamp) {
-		    if (startTimeStamp  ===  undefined) {
-			    startTimeStamp  =  timeStamp;
-		    }
-		    
-		    const  elapsed  =  timeStamp  -  startTimeStamp;
-		    const  timeRation  =  elapsed  / (extendDuration  *  0.01);
+   if (distance  ===  0) {   
+      return;
+   }
 
-		    // current position that it has to move between 0..1
-		    // time input between 0..1 , tell the function that where they are.
-		    const  current  =  easeInOutCubic(Math.min(timeRation  /  100, 1));
-    
-		    // do scroll
-		    window.scroll(0, startPosition  + (distance  *  current));
+   let  startTimeStamp;
+      function  step(timeStamp) {
+         if (startTimeStamp  ===  undefined) {
+            startTimeStamp  =  timeStamp;
+         }
+         
+         const  elapsed  =  timeStamp  -  startTimeStamp;
+         const  timeRation  =  elapsed  / (extendDuration  *  0.01);
 
-		    if (current  <  1) {
-			    window.requestAnimationFrame(step);
-		    }
-		}
-    
-	    window.requestAnimationFrame(step);
-    };
+         // The current position that has to move is within range between 0..1
+         // The time input range between 0..1 , indicating the position within the animation.
+         const  current  =  easeInOutCubic(Math.min(timeRation  /  100, 1));
+
+         // Perform scrolling
+         window.scroll(0, startPosition  + (distance  *  current));
+
+         if (current  <  1) {
+            window.requestAnimationFrame(step);
+         }
+   }
+
+   window.requestAnimationFrame(step);
+};
+```
+In this line, the more this distance there is, the more time will be added for the smoothness.
+```javascript
+    const extendDuration = duration + (Math.abs(distance) * 0.5);
 ```
 
 Where the  **offsetTop** is the section offset that added to prevent window from scrolling to the very top.
+
 ![enter image description here](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/S__19857416.jpg?raw=true)
 
-## 🎨 Color Palette
+## 🎨 Color theme
 
 | Color | Hex |
 | -------------- | ------------------------------------------------------------------ |
@@ -149,6 +154,7 @@ Where the  **offsetTop** is the section offset that added to prevent window from
 ![enter image description here](https://raw.githubusercontent.com/tOxicV4p0r/portfolio-v2/main/static/Color-UI_UX.jpg)
 
 As for the other details, I will provide them in more depth in the tutorial video. This article serve as a brief summary for now.
+
 
 ### Show your support
 Give a ⭐ if you like this website!

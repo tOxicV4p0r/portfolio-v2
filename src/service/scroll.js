@@ -19,11 +19,11 @@ export const scrollSmooth = (toElementId, duration, offsetTop) => {
         const elapsed = timeStamp - startTimeStamp;
         const timeRation = elapsed / (extendDuration * 0.01);
 
-        // current position that it has to move between 0..1
-        // time input between 0..1 , tell the function that where they are.
+        // The current position that has to move is within range between 0..1
+        // The time input range between 0..1 , indicating the position within the animation.
         const current = easeInOutCubic(Math.min(timeRation / 100, 1));
 
-        // do scroll
+        // Perform scrolling
         window.scroll(0, startPosition + (distance * current));
 
         if (current < 1) {

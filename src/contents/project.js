@@ -2,7 +2,6 @@ import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 import picAxieBot from "../asset/axiebot.png";
-import picFashionEcommer from "../asset/fashionecommer.png";
 import picLittleLemon from "../asset/littlelemon.png";
 import picSocialMern from "../asset/social_mern.png";
 
@@ -32,7 +31,7 @@ export const data = [
         skills: [
             ["React", "MUI", "Starpi", "Stripe"],
         ],
-        picture: picFashionEcommer,
+        picture: 'https://github.com/tOxicV4p0r/FULLSTACK-React-Ecommerce/blob/main/static/ecommergif.gif?raw=true',
     },
     {
         year: "June 2023",
