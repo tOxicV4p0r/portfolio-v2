@@ -3,7 +3,7 @@ import picMeta from "../asset/meta.png";
 export const data = [
     {
         year: "June 2023",
-        cerlink: "https://coursera.org/share/ec72454c71270ede2c47fd23e720be2d",
+        link: "https://coursera.org/share/ec72454c71270ede2c47fd23e720be2d",
         title: "Meta Front-End Developer by Meta",
         descriptions: [
             "Create a responsive website using HTML to structure content, CSS to handle visual style, and JavaScript to develop interactive experiences.",
@@ -17,7 +17,7 @@ export const data = [
     },
     {
         year: "June 2023",
-        cerlink: "https://coursera.org/share/b8791cd3bc48f7e518b8d96aa8daca40",
+        link: "https://coursera.org/share/b8791cd3bc48f7e518b8d96aa8daca40",
         title: "Meta Back-End Developer by Meta",
         descriptions: [
             "Learn to use programming systems including Python, Linux, Git, SQL, Version Control, Cloud, APIs Design, Django web framework JSON, XML and more.",

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { data } from "../../contents/experience";
 import useMediaQuery from "../../hook/useMediaQuery";
+import Description from "../Description";
+import Material from "../Material";
+import Picture from "../Picture";
+import Tech from "../Tech";
+import TitleLink from "../TitleLink";
+import Year from "../Year";
 
 function Experience({ section, addSection, detail }) {
     const isNonMobile = useMediaQuery("(min-width:1024px)");
@@ -24,7 +27,7 @@ function Experience({ section, addSection, detail }) {
             <span className="text-primaryHeader pl-3">{sectionTitle}</span>
             <div className="grid">
                 {
-                    data.map(({ year, link, title, descriptions, skills, picture }) => (
+                    data.map(({ year, title, link, materials, descriptions, skills, picture }) => (
                         <div
                             id={`${id}-${title.split(' ').join('')}`}
                             key={title}
@@ -33,47 +36,30 @@ function Experience({ section, addSection, detail }) {
                             onMouseLeave={() => setMouseEnter({ [title]: false })}
                         >
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
-                                <div><span className={`${isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section ? "text-primaryContent" : ""} text-sm`} >{year}</span></div>
-                                {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
+                                <Year isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section}>{year}</Year>
+                                {picture ? <Picture title={title} picture={picture} /> : null}
                             </div>
                             <div className="col-span-6 pl-2">
                                 <div className="flex flex-col space-y-4">
+                                    <TitleLink link={link} title={title} isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section} />
                                     {
-                                        link ?
-                                            <a
-                                                className={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section ? 'text-primaryTitle' : 'text-primaryHeader'}
-                                                href={link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="pr-1">{title}</span>
-                                                <FontAwesomeIcon
-                                                    icon={faArrowUp}
-                                                    className={`${isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section ? "-translate-y-1 translate-x-1" : "translate-y-0.5"} rotate-45 text-sm ease-out duration-500`}
-                                                />
-                                            </a>
-                                            :
-                                            <span className={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section ? "text-primaryTitle" : "text-primaryHeader"}>{title}</span>
+                                        materials.length > 0 ?
+                                            <div>
+                                                {
+                                                    materials.map((e, i) => (
+                                                        <Material key={`${id}-material-${i}`} isHighlight={isMouseEnter[title]} data={e} index={i} />
+                                                    ))
+                                                }
+                                            </div> : null
                                     }
                                     {
                                         descriptions.map((e, i) => (
-                                            <div key={i} className="text-primaryContent text-sm">{e}</div>
+                                            <Description key={`${id}-descriptions-${i}`} data={e} />
                                         ))
                                     }
                                     {
                                         skills.map((e, i) => (
-                                            <div key={i} className="flex flex-wrap gap-2">
-                                                {
-                                                    e.map((el, j) => (
-                                                        <div
-                                                            key={el + j}
-                                                            className={`${isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section ? "text-primarySubTitle" : "text-primarySubContent1"} text-sm rounded-md bg-primarySubContent2 bg-opacity-20 px-2 py-1`}
-                                                        >
-                                                            {el}
-                                                        </div>
-                                                    ))
-                                                }
-                                            </div>
+                                            <Tech key={`${id}-skill-${i}`} data={e} isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section} />
                                         ))
                                     }
                                 </div>
@@ -82,7 +68,7 @@ function Experience({ section, addSection, detail }) {
                     ))
                 }
             </div>
-        </section>
+        </section >
     );
 }
 
