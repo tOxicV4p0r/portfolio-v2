@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-import About from "./components/About";
-import Article from "./components/Article";
-import Certification from "./components/Certification";
-import Contact from "./components/Contact";
-import Experience from "./components/Experience";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import NavContent from "./components/NavContent";
-import Project from "./components/Project";
-// import Skill from "./components/Skill";
 import useMediaQuery from "./hook/useMediaQuery";
+import About from "./sections/About";
+import Article from "./sections/Article";
+import Certification from "./sections/Certification";
+import Contact from "./sections/Contact";
+import Experience from "./sections/Experience";
+import Footer from "./sections/Footer";
+import Header from "./sections/Header";
+import NavContent from "./sections/NavContent";
+import Project from "./sections/Project";
+// import Skill from "./components/Skill";
 
 const SCROLL_SECTION_ID = "content-section";
 

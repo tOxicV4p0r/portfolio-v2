@@ -1,34 +1,18 @@
 import { useEffect, useState } from "react";
 
+import Description from "../../components/Description";
+import Picture from "../../components/Picture";
+import Tech from "../../components/Tech";
+import TitleLink from "../../components/TitleLink";
+import Year from "../../components/Year";
+import { data } from "../../contents/certification";
 import useMediaQuery from "../../hook/useMediaQuery";
-import useRSSQuery from "../../hook/useRSSQuery";
-import Description from "../Description";
-import TitleLink from "../TitleLink";
-import Year from "../Year";
 
-const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-function Article({ section, addSection, detail }) {
-    const feed = useRSSQuery();
+function Certification({ section, addSection, detail }) {
     const isNonMobile = useMediaQuery("(min-width:1024px)");
     const [isMouseEnter, setMouseEnter] = useState({});
 
     const { sectionId: id, title: sectionTitle } = detail;
-
-    const formattedDate = (date) => {
-        const tmp = new Date(date);
-        return (`${monthNames[tmp.getMonth()]} ${tmp.getFullYear()}`);
-    }
-
-    const getDescription = (content) => {
-        if (!content) {
-            return "";
-        }
-
-        const tmp = content.split(/(?<=<p>)(.*?)(?=<\/p>)/i, 2);
-
-        return tmp[1];
-    }
 
     useEffect(() => {
         const tmp = [...document.getElementById(id).querySelectorAll('[id]')].map(e => e.id);
@@ -38,11 +22,11 @@ function Article({ section, addSection, detail }) {
     }, []);
 
     return (
-        <section className="space-y-5" id={id}>
+        <section className="space-y-5 scroll-mt-14" id={id} >
             <span className="text-primaryHeader pl-3">{sectionTitle}</span>
             <div className="grid">
                 {
-                    feed?.items?.map(({ title, thumbnail: picture, pubDate, link, content }) => (
+                    data.map(({ year, link, title, descriptions, skills, picture }) => (
                         <div
                             id={`${id}-${title.split(' ').join('')}`}
                             key={title}
@@ -51,13 +35,22 @@ function Article({ section, addSection, detail }) {
                             onMouseLeave={() => setMouseEnter({ [title]: false })}
                         >
                             <div className="col-span-2 text-primarySubContent1 space-y-4">
-                                <Year isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section}>{formattedDate(pubDate)}</Year>
-                                {picture ? <div className="w-5/6 p-1 bg-primarySubContent2 rounded-lg"><img src={picture} className="object-scale-down" alt={title} /></div> : null}
+                                <Year isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section}>{year}</Year>
+                                {picture ? <Picture title={title} picture={picture} className="w-3/6 bg-primaryContent" /> : null}
                             </div>
                             <div className="col-span-6 pl-2">
                                 <div className="flex flex-col space-y-4">
                                     <TitleLink link={link} title={title} isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section} />
-                                    <Description data={getDescription(content)} truncate />
+                                    {
+                                        descriptions.map((e, i) => (
+                                            <Description key={`${id}-descriptions-${i}`} data={e} />
+                                        ))
+                                    }
+                                    {
+                                        skills.map((e, i) => (
+                                            <Tech key={`${id}-skill-${i}`} data={e} isHighlight={isMouseEnter[title] || `${id}-${title.split(' ').join('')}` === section} />
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -65,7 +58,7 @@ function Article({ section, addSection, detail }) {
                 }
             </div>
         </section>
-    )
+    );
 }
 
-export default Article;
+export default Certification;
