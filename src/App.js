@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import About from "./components/About";
+import Article from "./components/Article";
 import Certification from "./components/Certification";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -18,6 +19,7 @@ const data = {
     { title: "About", sectionId: "about-section" },
     { title: "Experience", sectionId: "experience-section" },
     { title: "Project", sectionId: "sideproject-section" },
+    { title: "Article", sectionId: "article-section" },
     { title: "Certification", sectionId: "certification-section" },
   ]
 };
@@ -103,6 +105,11 @@ function App() {
           />
           <Project
             detail={data.sections[data.sections.findIndex(e => e.title === "Project")]}
+            section={currectSection}
+            addSection={addSection}
+          />
+          <Article
+            detail={data.sections[data.sections.findIndex(e => e.title === "Article")]}
             section={currectSection}
             addSection={addSection}
           />
