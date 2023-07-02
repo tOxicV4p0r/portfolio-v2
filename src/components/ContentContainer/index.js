@@ -44,7 +44,7 @@ const ContentContainer = ({
                             id={`${id}-${title.split(' ').join('')}-${index}`}
                             key={`${id}-${title.split(' ').join('')}-${index}`}
                             className={`
-                                grid grid-cols-8 p-2 py-7 mx-1 
+                                grid grid-cols-[25%_75%] p-2 py-7 mx-1 
                                 ${isNonMobile ?
                                     "hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
                                     : `${id}-${title.split(' ').join('')}` === stateWatchOnHover ?
@@ -54,11 +54,11 @@ const ContentContainer = ({
                             onMouseEnter={() => setMouseEnter({ [`${title}-${index}`]: true })}
                             onMouseLeave={() => setMouseEnter({ [`${title}-${index}`]: false })}
                         >
-                            <div className="col-span-2 text-primarySubContent1 space-y-4">
+                            <div className="text-primarySubContent1 space-y-4">
                                 <FormattedDate isHighlight={isMouseEnter[`${title}-${index}`] || `${id}-${title.split(' ').join('')}-${index}` === stateWatchOnHover}>{date}</FormattedDate>
                                 {picture ? <Picture title={title} picture={picture} className={pictureClassName} /> : null}
                             </div>
-                            <div className="col-span-6 pl-2">
+                            <div className="pl-2">
                                 <div className="flex flex-col space-y-4">
                                     <TitleLink
                                         link={link}
