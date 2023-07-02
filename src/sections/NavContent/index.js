@@ -3,9 +3,11 @@ import { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import useMediaQuery from "../../hook/useMediaQuery";
 import { scrollSmooth } from "../../service/scroll";
 
-function NavContent({ data, section }) {
+function NavContent({ sections, currentSection }) {
+    const isNonMobile = useMediaQuery("(min-width:1024px)");
     const [isMouseEnter, setIsMouseEnter] = useState(false);
 
     const handleClick = (anchor) => {
@@ -19,23 +21,27 @@ function NavContent({ data, section }) {
         }
     };
 
+    if (!isNonMobile) {
+        return null;
+    }
+
     return (
         <section>
             <div>
                 {
-                    data.sections.map((e, i) => (
+                    sections.map((e, i) => (
                         <div
                             key={`${e.sectionId}-${i}`}
                             onClick={() => handleClick(e.sectionId)}
                             onMouseEnter={() => setIsMouseEnter({ [e.sectionId]: true })}
                             onMouseLeave={() => setIsMouseEnter({ [e.sectionId]: false })}
-                            className={`${section === e.sectionId ? "text-white" : ""} cursor-pointer pt-5 flex`}
+                            className={`${currentSection === e.sectionId ? "text-white" : ""} cursor-pointer pt-5 flex`}
                         >
                             <FontAwesomeIcon
                                 icon={faArrowRight}
-                                className={`${section === e.sectionId ? "text-primaryTitle" : !isMouseEnter[e.sectionId] ? "hidden" : ""} new-arrow mt-1`}
+                                className={`${currentSection === e.sectionId ? "text-primaryTitle" : !isMouseEnter[e.sectionId] ? "hidden" : ""} new-arrow mt-1`}
                             />
-                            <div className={`${section === e.sectionId || isMouseEnter[e.sectionId] ? "translate-x-4" : ""} ease-out duration-200`}>{e.title}</div>
+                            <div className={`${currentSection === e.sectionId || isMouseEnter[e.sectionId] ? "translate-x-4" : ""} ease-out duration-200`}>{e.title}</div>
                         </div>
                     ))
                 }

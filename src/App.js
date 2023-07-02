@@ -1,38 +1,41 @@
 import { useEffect, useState } from "react";
 
 import useMediaQuery from "./hook/useMediaQuery";
-import About from "./sections/About";
-import Article from "./sections/Article";
-import Certification from "./sections/Certification";
-import Contact from "./sections/Contact";
-import Experience from "./sections/Experience";
-import Footer from "./sections/Footer";
-import Header from "./sections/Header";
-import NavContent from "./sections/NavContent";
-import Project from "./sections/Project";
-// import Skill from "./components/Skill";
+import LeftSection from "./sections/LeftSection";
+import RightSection from "./sections/RightSection";
 
 const SCROLL_SECTION_ID = "content-section";
 
-const data = {
-  sections: [
-    { title: "About", sectionId: "about-section" },
-    { title: "Experience", sectionId: "experience-section" },
-    { title: "Project", sectionId: "sideproject-section" },
-    { title: "Article", sectionId: "article-section" },
-    { title: "Certification", sectionId: "certification-section" },
-  ]
-};
-
-function App() {
+const App = () => {
   const isNonMobile = useMediaQuery("(min-width:1024px)");
-  const [currectSection, setCurrectSection] = useState(data.sections[0].sectionId);
+
+  const [currectSection, setCurrectSection] = useState("");
+  const [navBarItems, setNavBarItems] = useState([]);
   const [sectionIds, setSectionId] = useState([]);
+  const [sectionChildIds, setSectionChildId] = useState([]);
 
   // set components ID at mounted time
-  const addSection = (sections) => {
-    // use Set to prevent duplicates, when in dev mode the component is loaded twice.
-    setSectionId((prev) => [...new Set([...prev, ...sections])]);
+  const addSectionIds = (sectionId) => {
+    try {
+      const elementId = document.getElementById(sectionId).id;
+      const elementText = document.getElementById(`${sectionId}-title`).textContent;
+      const obj = { title: elementText, sectionId: elementId };
+
+      setNavBarItems((prev) => {
+        if (prev.findIndex(e => e.title === obj.title) < 0) {
+          return [...prev, obj];
+        }
+        return prev;
+      });
+
+      // use Set to prevent duplicates, when in dev mode the component is loaded twice.
+      // parent section ID
+      setSectionId((prev) => [...new Set([...prev, elementId])]);
+
+      // child section ID
+      const elementIds = [...document.getElementById(sectionId).querySelectorAll('[id]')].map(e => e.id);
+      setSectionChildId((prev) => [...new Set([...prev, ...elementIds])]);
+    } catch (e) { /* empty */ }
   };
 
   const handleScroll = () => {
@@ -40,25 +43,25 @@ function App() {
       // windows mode
       if (isNonMobile) {
 
-        for (let i = 0; i < data.sections.length; i++) {
-          const el = data.sections[i];
-          const elementOffetTop = document.getElementById(el.sectionId).getClientRects()[0].top;
-          const height = document.getElementById(el.sectionId).getClientRects()[0].height;
+        for (let i = 0; i < sectionIds.length; i++) {
+          const el = sectionIds[i];
+          const elementOffetTop = document.getElementById(el).getClientRects()[0].top;
+          const height = document.getElementById(el).getClientRects()[0].height;
           const viewHeight = window.screen.height * 0.3;
 
           if (elementOffetTop <= 0) {
             if (elementOffetTop + height > viewHeight) {
-              setCurrectSection(el.sectionId);
+              setCurrectSection(el);
             }
           } else if (elementOffetTop > 0 && elementOffetTop < viewHeight) {
-            setCurrectSection(el.sectionId);
+            setCurrectSection(el);
           }
         }
 
       } else {
         // mobile mode
-        for (let i = 0; i < sectionIds.length; i++) {
-          const el = sectionIds[i];
+        for (let i = 0; i < sectionChildIds.length; i++) {
+          const el = sectionChildIds[i];
           const elementOffetTop = document.getElementById(el).getClientRects()[0].top;
           const height = document.getElementById(el).getClientRects()[0].height;
           const viewHeight = window.screen.height * 0.4;
@@ -81,44 +84,27 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     }
-  }, [isNonMobile, sectionIds]);// eslint-disable-line
+  }, [isNonMobile, sectionChildIds]); // eslint-disable-line
+
+  useEffect(() => {
+    if (navBarItems.length > 0) {
+      setCurrectSection(navBarItems[0].sectionId);
+    }
+
+  }, [navBarItems]); // eslint-disable-line
 
   return (
     <main className="max-w-6xl mx-auto" >
       <div className="grid lg:grid-cols-[2fr_3fr] px-5 pb-7 pt-14 font-poppins tracking-wide">
-        <div>
-          <div className="sticky top-14 lg:h-[90vh] grid grid-cols-1 grid-rows-[70%_30%] gap-6 lg:grid-rows-[3fr_35%_20%] lg:gap-14">
-            <Header />
-            {isNonMobile ? <NavContent data={data} section={currectSection} /> : null}
-            <Contact />
-          </div>
-        </div>
+        <LeftSection
+          navBarItems={navBarItems}
+          currectSection={currectSection}
+        />
         <div id={SCROLL_SECTION_ID} className="w-full no-scrollbar grid gap-32 lg:gap-40">
-          <About
-            detail={data.sections[data.sections.findIndex(e => e.title === "About")]}
+          <RightSection
+            onInitial={addSectionIds}
+            currectSection={currectSection}
           />
-          {/* <Skill /> */}
-          <Experience
-            detail={data.sections[data.sections.findIndex(e => e.title === "Experience")]}
-            section={currectSection}
-            addSection={addSection}
-          />
-          <Project
-            detail={data.sections[data.sections.findIndex(e => e.title === "Project")]}
-            section={currectSection}
-            addSection={addSection}
-          />
-          <Article
-            detail={data.sections[data.sections.findIndex(e => e.title === "Article")]}
-            section={currectSection}
-            addSection={addSection}
-          />
-          <Certification
-            detail={data.sections[data.sections.findIndex(e => e.title === "Certification")]}
-            section={currectSection}
-            addSection={addSection}
-          />
-          <Footer />
         </div>
       </div>
     </main>

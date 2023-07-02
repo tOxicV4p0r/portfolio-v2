@@ -7,7 +7,7 @@ import picSocialMern from "../asset/social_mern.png";
 
 export const data = [
     {
-        year: "Jun 2023",
+        date: "Jun 2023",
         link: "https://blackboy96.xyz/",
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/portfolio-v2" },
@@ -21,7 +21,7 @@ export const data = [
         picture: "https://github.com/tOxicV4p0r/portfolio-v2/raw/main/static/demo.gif?raw=true",
     },
     {
-        year: "Jun 2023",
+        date: "Jun 2023",
         link: "https://clientecommer-nhvl2sce2q-as.a.run.app/",
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/FULLSTACK-React-Ecommerce" },
@@ -34,7 +34,7 @@ export const data = [
         picture: 'https://github.com/tOxicV4p0r/FULLSTACK-React-Ecommerce/blob/main/static/ecommergif.gif?raw=true',
     },
     {
-        year: "Jun 2023",
+        date: "Jun 2023",
         link: "https://little-lemon-image-nhvl2sce2q-uc.a.run.app/",
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/little-lemon/" },
@@ -47,7 +47,7 @@ export const data = [
         picture: picLittleLemon,
     },
     {
-        year: "May 2023",
+        date: "May 2023",
         link: "https://social-mern-image-nhvl2sce2q-as.a.run.app/",
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/social_mern_edroh/" },
@@ -62,7 +62,7 @@ export const data = [
         picture: picSocialMern,
     },
     {
-        year: "Oct 2021",
+        date: "Oct 2021",
         link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f",
         materials: [
             { type: faBook, link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f" }

@@ -2,7 +2,7 @@ import picMeta from "../asset/meta.png";
 
 export const data = [
     {
-        year: "Jun 2023",
+        date: "Jun 2023",
         link: "https://coursera.org/share/ec72454c71270ede2c47fd23e720be2d",
         title: "Meta Front-End Developer by Meta",
         descriptions: [
@@ -16,7 +16,7 @@ export const data = [
         picture: picMeta,
     },
     {
-        year: "Jun 2023",
+        date: "Jun 2023",
         link: "https://coursera.org/share/b8791cd3bc48f7e518b8d96aa8daca40",
         title: "Meta Back-End Developer by Meta",
         descriptions: [

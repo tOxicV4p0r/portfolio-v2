@@ -2,7 +2,7 @@ import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 export const data = [
     {
-        year: "2020-2021",
+        date: "2020-2021",
         title: "Fullstack · Sport Analysis System",
         link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248",
         materials: [
@@ -19,7 +19,7 @@ export const data = [
         picture: "",
     },
     {
-        year: "2013-2018",
+        date: "2013-2018",
         title: "Police Officer",
         link: "",
         materials: [
@@ -29,7 +29,7 @@ export const data = [
         picture: "",
     },
     {
-        year: "2012-2012",
+        date: "2012-2012",
         title: "Middleware System Engineer · IBM",
         link: "",
         materials: [

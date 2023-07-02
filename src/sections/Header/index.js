@@ -16,7 +16,7 @@ function Header() {
             <div className="text-primaryContent text-sm w-5/6 pb-3">{data.caption}</div>
             <div className="mt-5">
                 <a
-                    className="px-5 py-3 text-sm rounded-md bg-primaryTitle text-primaryHeader hover:bg-primarySubTitle"
+                    className="px-5 mt- py-3 text-sm rounded-md bg-primaryTitle text-primaryHeader hover:bg-primarySubTitle"
                     href={data.link}
                     target="_blank"
                     rel="noopener noreferrer"

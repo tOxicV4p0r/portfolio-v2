@@ -1,4 +1,4 @@
-const Year = ({ isHighlight, children }) => {
+const FormattedDate = ({ isHighlight, children }) => {
     return (
         <div>
             <span className={`${isHighlight ? "text-primaryContent" : ""} text-sm`} >
@@ -9,4 +9,4 @@ const Year = ({ isHighlight, children }) => {
     )
 }
 
-export default Year;
+export default FormattedDate;
