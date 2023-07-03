@@ -44,11 +44,11 @@ const ContentContainer = ({
                             id={`${id}-${title.split(' ').join('')}-${index}`}
                             key={`${id}-${title.split(' ').join('')}-${index}`}
                             className={`
-                                grid grid-cols-[25%_75%] p-2 py-7 mx-1 
+                                grid grid-cols-[25%_75%] p-2 py-7 mx-1
                                 ${isNonMobile ?
-                                    "hover:bg-primarySubContent2 hover:bg-opacity-10 hover:rounded-xl"
+                                    "hover:bg-primarySubContent2/[0.15] hover:rounded-xl"
                                     : `${id}-${title.split(' ').join('')}` === stateWatchOnHover ?
-                                        "bg-primarySubContent2 bg-opacity-10 rounded-xl"
+                                        "bg-primarySubContent2 rounded-xl"
                                         : ""}
                             `}
                             onMouseEnter={() => setMouseEnter({ [`${title}-${index}`]: true })}

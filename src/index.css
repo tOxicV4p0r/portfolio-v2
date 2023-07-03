@@ -1,10 +1,34 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Rubik:wght@300;400;500;600&display=swap');
 
 @layer base {
+  :root {
+    --color-primary-title: #5DBF4E;
+    --color-primary-subtitle: #498C3F;
+    --color-primary-header: #FFFFFF;
+    --color-primary-content: #8F96A6;
+    --color-primary-subcontent1: #4b4f58;
+    --color-primary-subcontent2: 52, 55, 64;
+    --color-primary-subcontent2Op20: rgba(52, 55, 64, 0.2);
+    --color-primary-bg: #0D0D0D;
+  }
+
+  /* 
+  .theme-light {
+    --color-primary-title: #5DBF4E;
+    --color-primary-subtitle: #498C3F;
+    --color-primary-header: #0D0D0D;
+    --color-primary-content: #8F96A6;
+    --color-primary-subcontent1: #4b4f58;
+    --color-primary-subcontent2: rgba(52, 55, 64, 1);
+    --color-primary-subcontent2Op10: rgba(52, 55, 64, 0.1);
+    --color-primary-subcontent2Op20: rgba(52, 55, 64, 0.2);
+    --color-primary-bg: #FFFFFF;
+  }
+ */
+
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
