@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const useRSSQuery = () => {
+const useRSSQuery = (rssFeedUrl) => {
     const [rssFeed, setRSSFeed] = useState([]);
 
     const formattedDate = (date) => {
@@ -20,15 +20,14 @@ const useRSSQuery = () => {
         return tmp[1];
     }
 
-
-    useEffect(() => {
-        const fetchData = async () => {
+    const fetchData = async () => {
+        if (rssFeedUrl) {
             try {
-                const data = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40KDeelert', {
+                const data = await fetch(rssFeedUrl, {
                     headers: { Accept: "application/ json" }
                 });
 
-                const dataJson = await data.json()
+                const dataJson = await data.json();
                 const tmp = dataJson.items.map(({ title, thumbnail, pubDate, link, content }) => {
                     return {
                         date: formattedDate(pubDate),
@@ -37,18 +36,21 @@ const useRSSQuery = () => {
                         picture: thumbnail,
                         descriptions: [getDescription(content)],
                     };
-                })
+                });
 
                 setRSSFeed(tmp);
 
             } catch (e) {
-                console.log(e);
+                console.warn(e);
             }
         }
+    }
+
+    useEffect(() => {
 
         fetchData();
-        
-    }, []); // eslint-disable-line
+
+    }, [rssFeedUrl]); // eslint-disable-line
 
     return rssFeed;
 }

@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import useMediaQuery from "./hook/useMediaQuery";
+import { useDataContext } from "./context/dataContext";
+// import useMediaQuery from "./hook/useMediaQuery";
 import LeftSection from "./sections/LeftSection";
 import RightSection from "./sections/RightSection";
 
 const SCROLL_SECTION_ID = "content-section";
 
 const App = () => {
-  const isNonMobile = useMediaQuery("(min-width:1024px)");
+  const { isNonMobile, setIsNonMobile } = useDataContext();
+  const query = "(min-width:1024px)";
+  const mediaQuery = useMemo(() => window.matchMedia(query), [query]);
 
   const [currectSection, setCurrectSection] = useState("");
   const [navBarItems, setNavBarItems] = useState([]);
@@ -85,6 +88,15 @@ const App = () => {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [isNonMobile, sectionChildIds]); // eslint-disable-line
+
+  useEffect(() => {
+    setIsNonMobile(window.matchMedia(query).matches);
+
+    const handleMediaChange = () => setIsNonMobile(mediaQuery.matches)
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    return () => mediaQuery.removeEventListener("change", handleMediaChange)
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     if (navBarItems.length > 0) {

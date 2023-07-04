@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Material = ({ data, isHighlight, index }) => {
+
     return (
         <a
             className={`${isHighlight ? 'text-primarySubTitle' : 'text-primaryContent'}`}

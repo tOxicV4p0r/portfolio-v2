@@ -3,11 +3,11 @@ import { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import useMediaQuery from "../../hook/useMediaQuery";
+import { useDataContext } from "../../context/dataContext";
 import { scrollSmooth } from "../../service/scroll";
 
 function NavContent({ sections, currentSection }) {
-    const isNonMobile = useMediaQuery("(min-width:1024px)");
+    const { isNonMobile } = useDataContext();
     const [isMouseEnter, setIsMouseEnter] = useState(false);
 
     const handleClick = (anchor) => {

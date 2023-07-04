@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import useMediaQuery from "../../hook/useMediaQuery";
+// import useMediaQuery from "../../hook/useMediaQuery";
 import Description from "../Description";
 import FormattedDate from "../FormattedDate";
 import Material from "../Material";
@@ -15,7 +15,6 @@ const ContentContainer = ({
     stateWatchOnHover,
     pictureClassName,
 }) => {
-    const isNonMobile = useMediaQuery("(min-width:1024px)");
     const [isMouseEnter, setMouseEnter] = useState({});
 
     const id = `${sectionTitle.split(' ').join('')}-section`;
@@ -23,8 +22,7 @@ const ContentContainer = ({
     useEffect(() => {
         onInitial(id);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []); // eslint-disable-line
 
     return (
         <section className="space-y-5 scroll-mt-14" id={id} >
@@ -43,14 +41,7 @@ const ContentContainer = ({
                         <div
                             id={`${id}-${title.split(' ').join('')}-${index}`}
                             key={`${id}-${title.split(' ').join('')}-${index}`}
-                            className={`
-                                grid grid-cols-[25%_75%] p-2 py-7 mx-1
-                                ${isNonMobile ?
-                                    "hover:bg-primarySubContent2/[0.15] hover:rounded-xl"
-                                    : `${id}-${title.split(' ').join('')}` === stateWatchOnHover ?
-                                        "bg-primarySubContent2 rounded-xl"
-                                        : ""}
-                            `}
+                            className={`${`${id}-${title.split(' ').join('')}-${index}` === stateWatchOnHover ? "bg-primarySubContent2/[0.2] rounded-xl" : ""} grid grid-cols-[25%_75%] p-2 py-7 mx-1 hover:bg-primarySubContent2/[0.2] hover:rounded-xl`}
                             onMouseEnter={() => setMouseEnter({ [`${title}-${index}`]: true })}
                             onMouseLeave={() => setMouseEnter({ [`${title}-${index}`]: false })}
                         >

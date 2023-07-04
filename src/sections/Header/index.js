@@ -2,10 +2,12 @@ import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { data } from "../../contents/header";
-import useMediaQuery from "../../hook/useMediaQuery";
+import { useDataContext } from "../../context/dataContext";
+// import useMediaQuery from "../../hook/useMediaQuery";
 
 function Header() {
-    const isNonMobile = useMediaQuery("(min-width:1024px)");
+    // const isNonMobile = useMediaQuery("(min-width:1024px)");
+    const { isNonMobile } = useDataContext();
 
     return (
         <section className={`${!isNonMobile ? "pl-3" : ""}`}>
