@@ -38,24 +38,24 @@ npm start
 
 # Story
 ## How I built portfolio website
-Since I’m planning to start applying for jobs. I started thinking about how to effectively market myself. I began by planning the necessary skills. Since I lack of working experience in this field, the only thing I can do is to build experience through practice projects and gain understanding of various concepts. Ultimately, one thing that is essential for a developer is a portfolio website. After completing it, I would like to write a summary of the design and the various concepts that I have applied.
+Since I’m planning to start applying for jobs. I started thinking about how to effectively market myself. I began by planning the necessary skills. Since I lack working experience in this field, the only thing I can do is to build experience through practice projects and gain an understanding of various concepts. Ultimately, one thing that is essential for a developer is a portfolio website. After completing it, I would like to write a summary of the design and the various concepts that I have applied.
 
 ## Design concept
 
-I start by seeking inspiration, determining the preferred style. The first thing I do is explore other developer’s portfolios, observing the design I like and trying to replicate them. One that caught my eye was that of  [BrittanyChiang](https://brittanychiang.com/), so I took it as a starting point for inspiration.
+I start by seeking inspiration and determining the preferred style. The first thing I do is explore other developers’ portfolios, observing the design I like and trying to replicate them. One that caught my eye was that of  [Brittany Chiang](https://brittanychiang.com/), so I took it as a starting point for inspiration.
 
 Now, it’s time to get hands-on and start laying down the framework. begin by outlining the structure and layout.
 ![Desktop layout](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/S__19857414.jpg?raw=true)
 ![Mobile layout](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/S__19857413.jpg?raw=true)
 
 ## Layout format used
-The desired layout is to have a fixed column on the left and the ability to scroll only the right side. After trying various approaches, I finally achieved the desired result by using a combination of grid layout and setting the left column as sticky. This allow the right column to scroll smoothly at any point on the screen.
+The desired layout is to have a fixed column on the left and the ability to scroll only on the right side. After trying various approaches, I finally achieved the desired result by using a combination of grid layout and setting the left column as sticky. This allows the right column to scroll smoothly at any point on the screen.
 
 ## Additional task
 
 **Scroll easing animation**
 
-Due to the unsatisfactory scrolling behavior of the window object when we click to select difference sections, we need to implement a custom animation to achieve the desired smoothness. The suitable function for this task is  **requestAnimationFrame** . Here is an example given by  [MNS web docs](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+Due to the unsatisfactory scrolling behavior of the window object when we click to select different sections, we need to implement a custom animation to achieve the desired smoothness. The suitable function for this task is  **requestAnimationFrame** . Here is an example given by  [MNS web docs](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
 
 ```javascript
 const element = document.getElementById("some-element-you-want-to-animate");  
@@ -135,7 +135,7 @@ In this line, the more this distance there is, the more time will be added for t
     const extendDuration = duration + (Math.abs(distance) * 0.5);
 ```
 
-Where the  **offsetTop** is the section offset that added to prevent window from scrolling to the very top.
+Where the  **offsetTop** is the section offset that is added to prevent window from scrolling to the very top.
 
 ![enter image description here](https://github.com/tOxicV4p0r/portfolio-v2/blob/main/static/S__19857416.jpg?raw=true)
 
