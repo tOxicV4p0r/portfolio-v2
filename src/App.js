@@ -112,12 +112,11 @@ const App = () => {
           navBarItems={navBarItems}
           currectSection={currectSection}
         />
-        <div id={SCROLL_SECTION_ID} className="w-full no-scrollbar grid gap-32 lg:gap-40">
-          <RightSection
-            onInitial={addSectionIds}
-            currectSection={currectSection}
-          />
-        </div>
+        <RightSection
+          scrollId={SCROLL_SECTION_ID}
+          onInitial={addSectionIds}
+          currectSection={currectSection}
+        />
       </div>
     </main>
   );

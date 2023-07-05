@@ -7,11 +7,11 @@ import useRSSQuery from "../../hook/useRSSQuery";
 import About from "../About";
 import Footer from "../Footer";
 
-const RightSection = ({ onInitial, currectSection }) => {
+const RightSection = ({ onInitial, currectSection, scrollId }) => {
     const articleData = useRSSQuery('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40KDeelert');
 
     return (
-        <>
+        <div id={scrollId} className="w-full grid gap-32 lg:gap-40">
             <About
                 onInitial={onInitial}
                 title="About"
@@ -44,7 +44,7 @@ const RightSection = ({ onInitial, currectSection }) => {
                 pictureClassName="w-3/6 bg-primaryContent"
             />
             <Footer />
-        </>
+        </div>
     )
 }
 

@@ -11,23 +11,8 @@
     --color-primary-content: #8F96A6;
     --color-primary-subcontent1: #4b4f58;
     --color-primary-subcontent2: 52, 55, 64;
-    --color-primary-subcontent2Op20: rgba(52, 55, 64, 0.2);
     --color-primary-bg: #0D0D0D;
   }
-
-  /* 
-  .theme-light {
-    --color-primary-title: #5DBF4E;
-    --color-primary-subtitle: #498C3F;
-    --color-primary-header: #0D0D0D;
-    --color-primary-content: #8F96A6;
-    --color-primary-subcontent1: #4b4f58;
-    --color-primary-subcontent2: rgba(52, 55, 64, 1);
-    --color-primary-subcontent2Op10: rgba(52, 55, 64, 0.1);
-    --color-primary-subcontent2Op20: rgba(52, 55, 64, 0.2);
-    --color-primary-bg: #FFFFFF;
-  }
- */
 
   body {
     margin: 0;
@@ -44,24 +29,6 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-@layer components {
-  @layer responsive {
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
-    }
-  }
 }
 
 @keyframes append-animate {
