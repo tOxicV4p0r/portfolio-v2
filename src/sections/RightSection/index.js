@@ -16,6 +16,7 @@ const RightSection = ({ onInitial, currectSection, scrollId }) => {
                 onInitial={onInitial}
                 title="About"
                 description={aboutData.description}
+                stateWatchOnHover={currectSection}
             />
             {/* <Skill /> */}
             <ContentContainer

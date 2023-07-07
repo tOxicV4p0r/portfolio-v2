@@ -26,7 +26,10 @@ const ContentContainer = ({
 
     return (
         <section className="space-y-5 scroll-mt-14" id={id} >
-            <span className="text-primaryHeader pl-3" id={`${id}-title`}>{sectionTitle}</span>
+            <div className="flex items-center mx-3">
+                <span className={`bg-white h-[1px] inline-block duration-500 ease-out ${stateWatchOnHover.indexOf(id) > -1 ? "pr-10 mr-2" : "pr-0"}`}></span>
+                <span className={`${stateWatchOnHover.indexOf(id) > -1 ? "text-primaryHeader" : "text-primarySubContent1"}`} id={`${id}-title`}>{sectionTitle}</span>
+            </div>
             <div className="grid">
                 {
                     data.map(({

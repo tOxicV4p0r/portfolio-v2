@@ -1,4 +1,4 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
+// import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 import sportAnalyzer from "./../asset/sportanalyzer.webp"
 
@@ -8,7 +8,7 @@ export const data = [
         title: "Fullstack · Sport Analysis System",
         link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248",
         materials: [
-            { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248" },
+            // { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248" },
         ],
         descriptions: [
             "Developed a sophisticated real-time statistical analysis system for football betting and investing.",
