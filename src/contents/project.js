@@ -7,6 +7,25 @@ import picSocialMern from "../asset/social_mern.png";
 
 export const data = [
     {
+        date: "Oct 2021-hightlight",
+        link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f",
+        materials: [
+            { type: faBook, link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f" }
+        ],
+        title: "Automated Trading Bot - Axie",
+        descriptions: [
+            "Designed and developed a trading bot for Axie Infinity, a popular NFT game, to automate the buying and selling process of in-game assets.",
+            "Utilized web3 technology to connect to the Ronin blockchain and retrieve real-time trading data.",
+            "Implemented data analysis algorithms to identify profitable opportunities by analyzing sales data, average selling prices, and market trends.",
+            "Incorporated pre-defined trading strategies based on different models' sales frequency, aiming for profit margins ranging from 10% to 50%.",
+            "Created a user-friendly interface for monitoring and adjusting bot settings, ensuring efficient and timely decision-making.",
+        ],
+        skills: [
+            ["Web3", "Puppeteer", "Nginx", "NodeJS", "MongoDB"],
+        ],
+        picture: picAxieBot,
+    },
+    {
         date: "Jun 2023",
         link: "https://blackboy96.xyz/",
         materials: [
@@ -60,18 +79,5 @@ export const data = [
             ["NodeJS", "MongoDB"],
         ],
         picture: picSocialMern,
-    },
-    {
-        date: "Oct 2021",
-        link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f",
-        materials: [
-            { type: faBook, link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f" }
-        ],
-        title: "Automated Trading Bot - Axie",
-        descriptions: ["The bot collects daily trading data and utilizes it to analyze buying and selling prices to identify profitable opportunities. It executes automated buying and selling Axie that can generate a profit of 10% or more on the Ronin blockchain."],
-        skills: [
-            ["Web3", "Puppeteer", "Nginx", "NodeJS", "MongoDB"],
-        ],
-        picture: picAxieBot,
     }
 ];

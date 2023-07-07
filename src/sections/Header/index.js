@@ -22,10 +22,12 @@ function Header() {
                     rel="noopener noreferrer"
                 >
                     <span className="pr-2">{data.btnText}</span>
-                    <FontAwesomeIcon
-                        icon={faArrowDown}
-                        className="motion-safe:animate-bounce"
-                    />
+                    <span className="rotate-90 inline-block">
+                        <FontAwesomeIcon
+                            icon={faArrowDown}
+                            className="motion-safe:animate-bounce"
+                        />
+                    </span>
                 </a>
             </div>
         </section>

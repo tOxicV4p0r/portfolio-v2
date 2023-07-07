@@ -1,6 +1,23 @@
-import picMeta from "../asset/meta.png";
+// import picMeta from "../asset/meta.png";
+import picGoogleCyberSecure from "../asset/Google-Cybersecurity-Certificate.png";
+import picMetaBackend from "../asset/Meta-Back-End-Developer-Certificate.png";
+import picMetaFrontend from "../asset/Meta-Front-End-Developer-Certificate.png";
 
 export const data = [
+    {
+        date: "July 2023 - present",
+        link: "https://www.coursera.org/professional-certificates/google-cybersecurity",
+        title: "Google Cybersecurity [in progress (3/8)]",
+        descriptions: [
+            "Understand the importance of cybersecurity practices and their impact for organizations.",
+            "Identify common risks, threats, and vulnerabilities, as well as techniques to mitigate them.",
+            "Protect networks, devices, people, and data from unauthorized access and cyberattacks using Security Information and Event Management (SIEM) tools.",
+        ],
+        skills: [
+            ["SIEM tools", "IDS", "Linux", "Python", "SQL"],
+        ],
+        picture: picGoogleCyberSecure,
+    },
     {
         date: "Jun 2023",
         link: "https://coursera.org/share/ec72454c71270ede2c47fd23e720be2d",
@@ -13,7 +30,7 @@ export const data = [
         skills: [
             ["UI/UX design", "JavaScript", "React", "HTML", "CSS"],
         ],
-        picture: picMeta,
+        picture: picMetaFrontend,
     },
     {
         date: "Jun 2023",
@@ -26,6 +43,6 @@ export const data = [
         skills: [
             ["API Design", "Python", "Django", "DBMS"],
         ],
-        picture: picMeta,
+        picture: picMetaBackend,
     },
 ];

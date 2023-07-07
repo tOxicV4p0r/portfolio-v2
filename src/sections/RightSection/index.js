@@ -41,7 +41,7 @@ const RightSection = ({ onInitial, currectSection, scrollId }) => {
                 title="Certification"
                 data={certificationData}
                 stateWatchOnHover={currectSection}
-                pictureClassName="w-3/6 bg-primaryContent"
+                pictureClassName="w-4/6 bg-primaryContent"
             />
             <Footer />
         </div>

@@ -1,22 +1,30 @@
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 
+import sportAnalyzer from "./../asset/sportanalyzer.webp"
+
 export const data = [
     {
-        date: "2020-2021",
+        date: "2019-2021",
         title: "Fullstack · Sport Analysis System",
         link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248",
         materials: [
             { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248" },
         ],
         descriptions: [
-            "Designing and developing a sports data analysis system that scrapes data from various sports websites, processes it, and presents different profit-making possibilities in real-time for customers.",
-            "Create tools for monitoring the backend and implementing self-recovery mechanisms, ensuring their seamless operation 24/7."
+            "Developed a sophisticated real-time statistical analysis system for football betting and investing.",
+            "Designed and implemented a highly customizable condition system to identify optimal betting opportunities.",
+            "Conducted extensive data analysis over four years, demonstrating consistent positive returns on invested matches that aligned with predetermined conditions.",
+            "Utilized load balancing and reverse proxy techniques to ensure smooth system performance and handle increased user traffic.",
+            "Enabled customers to achieve higher profitability by identifying and capitalizing on favorable betting opportunities based on real-time statistical analysis.",
+            "Provided customers with a systematic approach to risk management, allowing them to define their risk tolerance and adjust their betting strategies accordingly.",
+            "Facilitated the development of long-term betting strategies by leveraging historical data and insights, leading to more sustainable and profitable investment approaches.",
+            "Improved the overall betting experience by combining data analysis, automation, and real-time insights, enhancing customer satisfaction and engagement.",
         ],
         skills: [
             ["React", "Redux-Saga", "Antd"],
             ["Playwright", "Nginx", "NodeJS", "MongoDB"]
         ],
-        picture: "",
+        picture: sportAnalyzer,
     },
     {
         date: "2013-2018",
