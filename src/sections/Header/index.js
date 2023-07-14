@@ -21,13 +21,13 @@ function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span className="pr-2">{data.btnText}</span>
-                    <span className="rotate-90 inline-block">
+                    <span className="-rotate-90 inline-block">
                         <FontAwesomeIcon
                             icon={faArrowDown}
                             className="motion-safe:animate-bounce"
                         />
                     </span>
+                    <span className="pl-2">{data.btnText}</span>
                 </a>
             </div>
         </section>

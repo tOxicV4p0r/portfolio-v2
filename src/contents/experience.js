@@ -18,7 +18,6 @@ export const data = [
             "Enabled customers to achieve higher profitability by identifying and capitalizing on favorable betting opportunities based on real-time statistical analysis.",
             "Provided customers with a systematic approach to risk management, allowing them to define their risk tolerance and adjust their betting strategies accordingly.",
             "Facilitated the development of long-term betting strategies by leveraging historical data and insights, leading to more sustainable and profitable investment approaches.",
-            "Improved the overall betting experience by combining data analysis, automation, and real-time insights, enhancing customer satisfaction and engagement.",
         ],
         skills: [
             ["React", "Redux-Saga", "Antd"],

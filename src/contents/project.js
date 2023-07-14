@@ -30,6 +30,7 @@ export const data = [
         link: "https://blackboy96.xyz/",
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/portfolio-v2" },
+            { type: faYoutube, link: "https://youtu.be/DOUP5gwk2jI" },
             { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-portfolio-website-945508dd9637" },
         ],
         title: "Portfolio V2",
