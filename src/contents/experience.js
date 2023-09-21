@@ -14,6 +14,7 @@ export const data = [
             "Developed a sophisticated real-time statistical analysis system for football betting and investing.",
             "Designed and implemented a highly customizable condition system to identify optimal betting opportunities.",
             "Conducted extensive data analysis over four years, demonstrating consistent positive returns on invested matches that aligned with predetermined conditions.",
+            "The system is capable of generating an annual profit exceeding 3,000%",
             "Utilized load balancing and reverse proxy techniques to ensure smooth system performance and handle increased user traffic.",
             "Enabled customers to achieve higher profitability by identifying and capitalizing on favorable betting opportunities based on real-time statistical analysis.",
             "Provided customers with a systematic approach to risk management, allowing them to define their risk tolerance and adjust their betting strategies accordingly.",
