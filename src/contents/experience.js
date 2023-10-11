@@ -1,3 +1,18 @@
+/*
+*   date - string
+*   title - string
+*   link - URL string
+*   materials - [{ 
+*       type - icon
+*       link - URL string
+*   }]
+*   descriptions - [string]
+*   skills - [
+*       [string] - 1 array/line
+*   ]
+*   picture - file path
+*/
+
 // import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 import sportAnalyzer from "./../asset/sportanalyzer.webp"

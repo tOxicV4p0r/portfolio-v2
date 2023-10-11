@@ -1,3 +1,18 @@
+/*
+*   date - string
+*   title - string
+*   link - URL string
+*   materials - [{ 
+*       type - icon
+*       link - URL string
+*   }]
+*   descriptions - [string]
+*   skills - [
+*       [string] - 1 array/line
+*   ]
+*   picture - file path
+*/
+
 // import picMeta from "../asset/meta.png";
 // import picGoogleCyberSecure from "../asset/Google-Cybersecurity-Certificate.png";
 import picMetaBackend from "../asset/Meta-Back-End-Developer-Certificate.png";
