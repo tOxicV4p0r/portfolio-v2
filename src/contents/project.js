@@ -15,10 +15,10 @@ export const data = [
         title: "Automated Trading Bot - Axie",
         descriptions: [
             "Designed and developed a trading bot for Axie Infinity, a popular NFT game, to automate the buying and selling process of in-game assets.",
+            "Designed and Implemented a user-friendly interface for monitoring data.",
             "Utilized web3 technology to connect to the Ronin blockchain and retrieve real-time trading data.",
             "Implemented data analysis algorithms to identify profitable opportunities by analyzing sales data, average selling prices, and market trends.",
-            "Incorporated pre-defined trading strategies based on different models' sales frequency, aiming for profit margins ranging from 10% to 50%.",
-            "Created a user-friendly interface for monitoring and adjusting bot settings, ensuring efficient and timely decision-making.",
+            "Pre-defined trading strategies based on Axie models' sales frequency, aiming for profit margins ranging from 10% to 50%",
         ],
         skills: [
             ["Web3", "Puppeteer", "Nginx", "NodeJS", "MongoDB"],

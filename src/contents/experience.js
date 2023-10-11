@@ -4,21 +4,20 @@ import sportAnalyzer from "./../asset/sportanalyzer.webp"
 
 export const data = [
     {
-        date: "2019-2021",
+        date: "2019-2022",
         title: "Fullstack · Sport Analysis System",
         link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248",
         materials: [
             // { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-soccer-analyzer-tool-eng-55bf8a473248" },
         ],
         descriptions: [
-            "Developed a sophisticated real-time statistical analysis system for football betting and investing.",
-            "Designed and implemented a highly customizable condition system to identify optimal betting opportunities.",
-            "Conducted extensive data analysis over four years, demonstrating consistent positive returns on invested matches that aligned with predetermined conditions.",
-            "The system is capable of generating an annual profit exceeding 3,000%",
-            "Utilized load balancing and reverse proxy techniques to ensure smooth system performance and handle increased user traffic.",
-            "Enabled customers to achieve higher profitability by identifying and capitalizing on favorable betting opportunities based on real-time statistical analysis.",
-            "Provided customers with a systematic approach to risk management, allowing them to define their risk tolerance and adjust their betting strategies accordingly.",
-            "Facilitated the development of long-term betting strategies by leveraging historical data and insights, leading to more sustainable and profitable investment approaches.",
+            "Developed a bot for web scraping to extract various statistics and real-time odds.",
+            "Developed a real-time statistical analysis system for football betting and investing, which conducted extensive data analysis over four years, showing consistent positive returns on selected matches that were placed by selected conditions.",
+            "Designed and implemented a customizable condition system to identify betting opportunities that are capable of generating 3,000% of the average annual profit.",
+            "Designed and implemented an automated betting system.",
+            "Designed and Implemented a responsive web application for displaying real-time statistics and configuring the automated betting system.",
+            "Utilized load balancing and reverse proxy to ensure smooth system performance and handle increased user traffic.",
+            "Developed a notification system to send alerts to the Line application when there are matches that meet the specified conditions.",
         ],
         skills: [
             ["React", "Redux-Saga", "Antd"],
