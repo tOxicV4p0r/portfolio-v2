@@ -29,11 +29,11 @@ export const data = [
             { type: faBook, link: "https://medium.com/@KDeelert/how-i-made-100k-in-a-month-with-axie-infinity-77cca8e9b29f" }
         ],
         descriptions: [
-            "Designed and developed a trading bot for Axie Infinity, a popular NFT game, to automate the buying and selling process of in-game assets.",
-            "Designed and Implemented a user-friendly interface for monitoring data.",
-            "Utilized web3 technology to connect to the Ronin blockchain and retrieve real-time trading data.",
-            "Implemented data analysis algorithms to identify profitable opportunities by analyzing sales data, average selling prices, and market trends.",
-            "Pre-defined trading strategies based on Axie models' sales frequency, aiming for profit margins ranging from 10% to 50%",
+            "· Designed and developed a trading bot for Axie Infinity, a popular NFT game, to automate the buying and selling process of in-game assets.",
+            "· Designed and Implemented a user-friendly interface for monitoring data.",
+            "· Utilized web3 technology to connect to the Ronin blockchain and retrieve real-time trading data.",
+            "· Implemented data analysis algorithms to identify profitable opportunities by analyzing sales data, average selling prices, and market trends.",
+            "· Pre-defined trading strategies based on Axie models' sales frequency, aiming for profit margins ranging from 10% to 50%",
         ],
         skills: [
             ["Web3", "Puppeteer", "Nginx", "NodeJS", "MongoDB"],
@@ -49,7 +49,7 @@ export const data = [
             { type: faYoutube, link: "https://youtu.be/DOUP5gwk2jI" },
             { type: faBook, link: "https://medium.com/@KDeelert/how-i-built-portfolio-website-945508dd9637" },
         ],
-        descriptions: ["A simple and minimalist portfolio for developers built with React and TailwindCSS, designed to be clean and fast."],
+        descriptions: ["· A simple and minimalist portfolio for developers built with React and TailwindCSS, designed to be clean and fast."],
         skills: [
             ["React", "TailwindCSS"],
         ],
@@ -62,7 +62,7 @@ export const data = [
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/FULLSTACK-React-Ecommerce" },
         ],
-        descriptions: ["The project serves as an opportunity for me to deepen my understanding of React, Starpi CMS backend, and setting up a payment system with Stripe."],
+        descriptions: ["· The project serves as an opportunity for me to deepen my understanding of React, Starpi CMS backend, and setting up a payment system with Stripe."],
         skills: [
             ["React", "MUI", "Starpi", "Stripe"],
         ],
@@ -75,7 +75,7 @@ export const data = [
         materials: [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/little-lemon/" },
         ],
-        descriptions: ["This project is part of the Meta Front-End Developer Capstone final project assessment and focuses solely on reservation functionality."],
+        descriptions: ["· This project is part of the Meta Front-End Developer Capstone final project assessment and focuses solely on reservation functionality."],
         skills: [
             ["React"],
         ],
@@ -89,7 +89,7 @@ export const data = [
             { type: faGithub, link: "https://github.com/tOxicV4p0r/social_mern_edroh/" },
             { type: faYoutube, link: "https://youtu.be/BdgSbmS4_qg" },
         ],
-        descriptions: ["This demo project is based on EdRoh's tutorial video on Youtube. I have fixed some bugs and added several features."],
+        descriptions: ["· This demo project is based on EdRoh's tutorial video on Youtube. I have fixed some bugs and added several features."],
         skills: [
             ["React", "Redux", "MUI"],
             ["NodeJS", "MongoDB"],
